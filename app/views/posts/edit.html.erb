@@ -1,2 +1,11 @@
-<h1>Posts#edit</h1>
-<p>Find me in app/views/posts/edit.html.erb</p>
+<div class="edit_form">
+<%= form_for(@post, url:{controller:'posts', action:'edit', id:@post.id}) do |f| %>
+<div class="form-group">
+    <label for="content">内容</label>
+    <%= f.text_area :content ,{class:"form-control"} %>
+</div>
+<div class="button">
+    <%= f.submit '更新',{class:'btn btn-primary'} %>
+</div>
+<% end %>
+</div>

@@ -11,10 +11,18 @@
 .form{
     position:fixed;
     position:absolute;
-    bottom:0;
-    width:100%;
+    bottom:10;
+    width:88%;
 }
 
 table tr{
     height:100px;
+}
+
+.button{
+    float:right;
+}
+
+.edit_form{
+    margin-top:200px;
 }

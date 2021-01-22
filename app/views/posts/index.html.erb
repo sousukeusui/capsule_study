@@ -6,6 +6,8 @@
         <td>なまえ</td>
         <td><%= obj.created_at %></td>
         <td><%= obj.content %></td>
+        <td><a href="/posts/edit/<%= obj.id %>">編集</a></td>
+        <td>削除</td>
     </tr>
     <% end %>
 </table>
@@ -16,6 +18,8 @@
         <label for="content">投稿内容</label>
         <%= f.text_area :content ,{class: "form-control"}%>
     </div>
-    <%= f.submit "投稿" ,class:"btn btn-primary" %>
+    <div class="button">
+      <%= f.submit "投稿" ,{class: "btn btn-primary"}%>
+    </div>
 <% end %>
 </div>
