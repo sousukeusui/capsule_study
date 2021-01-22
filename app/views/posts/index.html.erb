@@ -1,25 +1,21 @@
+<div class="data">
 <table class="table">
+    <% @data.each do |obj| %>
     <tr>
-        <th>ユーザー画像</th>
-        <th>名前</th>
-        <th>日付</th>
-        <th>内容</th>
+        <td>画像</td>
+        <td>なまえ</td>
+        <td><%= obj.created_at %></td>
+        <td><%= obj.content %></td>
     </tr>
-
-<% @data.each do |obj| %>
-<tr>
-    <td>画像</td>
-    <td>なまえ</td>
-    <td><%= obj.created_at %></td>
-    <td><%= obj.content %></td>
-</tr>
-<% end %>
+    <% end %>
 </table>
-
-<%= form_for(@post, url:{controller:'posts', action:'create'}) do |f| %>
-<div class="form_groupe">
-    <label for="content" %>投稿内容</label>
-    <%= f.text_area :content %>
 </div>
-<%= f.submit "投稿" %>
+<div class="form">
+<%= form_for(@post, url:{controller:'posts', action:'create'}) do |f| %>
+    <div class="form_group">
+        <label for="content">投稿内容</label>
+        <%= f.text_area :content ,{class: "form-control"}%>
+    </div>
+    <%= f.submit "投稿" ,class:"btn btn-primary" %>
 <% end %>
+</div>
