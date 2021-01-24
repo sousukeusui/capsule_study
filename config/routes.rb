@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  get 'users/new'
+  get 'users/create'
+  get 'users/show'
+  post 'users/create' =>'users#create'
+  get '' => 'home#index'
+  get 'new' => 'home#new' 
+  get 'login' => 'home#login'
   get 'posts' => 'posts#index'
   post 'posts' => 'posts#create'
   get 'posts/new'

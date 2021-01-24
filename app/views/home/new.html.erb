@@ -1,0 +1,22 @@
+<div class="wrap">
+    <div class="new">
+        <h1>新規登録</h1>
+        <%= form_for(@user, url:{controller:'users', action:'create'}) do |f| %>
+        <div class="new_form">
+            <label for=mail>メールアドレス</label for>
+            <%= f.text_field :mail %>
+        </div>
+        <div class="new_form">
+            <label for=name>ニックネーム</label for>
+            <%= f.text_field :name %>
+        </div> 
+        <div class="new_form">
+            <label for=password>パスワード</label for>
+            <%= f.text_field :password %>
+        </div>
+        <div class="btn1">
+            <%= f.submit '登録' ,{class: 'btn2'}%>
+        </div>
+        <% end %>
+    </div>
+</div>

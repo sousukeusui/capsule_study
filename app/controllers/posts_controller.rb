@@ -9,7 +9,7 @@ class PostsController < ApplicationController
     if @post.save then
       redirect_to '/posts'
     else
-      reder 'index'
+      render 'index'
     end
   end
 
