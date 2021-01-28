@@ -15,6 +15,9 @@
   <header class="side">
     <%= render template:'layouts/sidebar' %>
   </header>
+  <%flash.each do |message_type, message| %>
+    <%= message %>
+  <% end %>
   <div class="main">
     <%= yield %>
   </div>
