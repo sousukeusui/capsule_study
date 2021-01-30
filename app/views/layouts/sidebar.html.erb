@@ -5,5 +5,8 @@
         <li><a href="/users/show">ユーザー画像</a></li>
         <li><a href="/questions/new">問題</a></li>
         <li>ポイント</li>
+        <% if @current_user %>
+        <li><%= link_to "ログアウト","/logout", method: :delete %></li>
+        <% end %>
     </ul>
 </div>

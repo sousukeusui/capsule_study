@@ -7,11 +7,12 @@
         <td><%= obj.created_at %></td>
         <td><%= obj.content %></td>
         <td><a href="/posts/edit/<%= obj.id %>">編集</a></td>
-        <td>削除</td>
+        <td><a href="javascript:delData(<%= obj.id %>);">削除</a></td>
     </tr>
     <% end %>
 </table>
 </div>
+
 <div class="form">
 <%= form_for(@post, url:{controller:'posts', action:'create'}) do |f| %>
     <div class="form_group">
@@ -23,3 +24,12 @@
     </div>
 <% end %>
 </div>
+
+<script>
+function delData(num){
+    if(confirm('この投稿を削除しますか？')){
+        document.location = "/posts/delete/" + num;
+    }
+    return false;
+}
+</script>

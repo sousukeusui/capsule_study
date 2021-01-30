@@ -24,6 +24,11 @@ class PostsController < ApplicationController
     end
   end
 
+  def delete
+    @data = Post.find(params[:id])
+    @data.destroy
+    redirect_to "/posts"
+  end
 
   
   private

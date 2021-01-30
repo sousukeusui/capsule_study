@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  skip_before_action :login_required
+
   def new
   end
 
@@ -12,6 +14,12 @@ class SessionsController < ApplicationController
     else
       render 'new'
     end
+  end
+
+  def destroy
+    reset_session
+    flash[:notice] = "ログアウトしました"
+    redirect_to '/' 
   end
 
   private
