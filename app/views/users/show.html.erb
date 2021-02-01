@@ -1,1 +1,50 @@
-<h1><%= @msg %></h1>
+<div class="mypage">
+    <div class="profile">
+        <h1>プロフィール</h1>
+        <% @users.each do |obj| %>
+            <div class="name">
+                <p><%= obj.name %></p>
+                <p><%= obj.image %></p>
+            </div>
+            <div class="content">
+                <p class='introduce'>自己紹介</p>
+                <div class="box1">
+                    <p><%= obj.profile %></p>
+                </div>
+                <div class="edit_link">
+                    <a href="/users/edit/<%= obj.id%>">プロフィール編集</a>
+                </div>
+            </div>
+        <% end %>
+        <div class="clear"></div>
+        <div class="button1 clearfix">
+            <p class="edit_btn"><a href="/questions/new">問題ガチャ</a></p>
+            <p class="edit_btn"><a href="/posts">投稿する</a></p>
+        </div>
+        <p>自分の投稿</p>
+    </div>
+</div>
+<div class="data1">
+    <table class="table">
+        <% @mydata.each do |obj| %>
+            <tr>
+                <td>画像</td>
+                <td>名前</td>
+                <td><%= obj.created_at %></td>
+                <td><%= obj.content %></td>
+                <td><a href="/posts/edit/<%= obj.id %>">編集</a></td>
+                <td><a href="javascript:delData(<%= obj.id %>)">削除</a></td>
+            </tr>
+        <%end %>
+    </table>
+</div>
+<div class="clear1"></div>
+
+<script>
+function delData(num){
+    if(confirm('この投稿を削除しますか？')){
+        document.location = "/posts/delete/" + num;
+    }
+    return false;
+}
+</script>

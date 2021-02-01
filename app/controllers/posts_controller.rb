@@ -5,8 +5,10 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new post_params
+    @post = current_user.posts.new post_params
+
     if @post.save then
+      flash[:notice] = "投稿が完了しました"
       redirect_to '/posts'
     else
       render 'index'

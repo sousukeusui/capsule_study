@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
     if user&.authenticate(session_params[:password])
       session[:user_id]=user.id
       flash[:notice] ="ログインしました"
-      redirect_to '/users/show'
+      redirect_to controller: 'users', action: 'show', id:session[:user_id]
     else
       render 'new'
     end

@@ -1,12 +1,16 @@
 <div class="sidebar">
     <ul>
-        <li><a href="/posts">アイコン</a></li>
-        <li>ハンガー</li>
-        <li><a href="/users/show">ユーザー画像</a></li>
-        <li><a href="/questions/new">問題</a></li>
-        <li>ポイント</li>
-        <% if @current_user %>
-        <li><%= link_to "ログアウト","/logout", method: :delete %></li>
+        <% if current_user %>
+            <li><a href="/posts">アイコン</a></li>
+        <% else %>
+            <li><a href="/">アイコン</a>
+        <% end %>
+            <li>ハンガー</li>
+        <% if current_user %>
+            <li><a href="/users/show/<%= current_user.id %>">ユーザー画像</a></li>
+            <li><a href="/questions/new">問題</a></li>
+            <li>ポイント</li>
+            <li><%= link_to "ログアウト","/logout", method: :delete %></li>
         <% end %>
     </ul>
 </div>

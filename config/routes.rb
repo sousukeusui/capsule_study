@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   get 'users/new'
   get 'users/create'
-  get 'users/show'
+  get 'users/show/:id' => 'users#show'
+  get 'users/edit/:id' =>'users#edit'
+  patch 'users/edit/:id' => 'users#edit'
   post 'users/create' =>'users#create'
   post 'users/login' => 'users#login'
   get '' => 'home#index'
