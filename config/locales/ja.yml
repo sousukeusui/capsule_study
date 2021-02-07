@@ -1,0 +1,13 @@
+ja:
+  activerecord:
+    models:
+      user: ユーザー
+    attributes:
+      user:
+        mail: メールアドレス
+        name: ニックネーム
+        created_at: 登録日時
+        updated_at: 更新日時
+        password_digest: パスワード
+        image: 画像
+        profile: プロフィール

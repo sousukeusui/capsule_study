@@ -1,36 +1,36 @@
 <div class="data">
-<h1>タイムライン</h1>
-<table class="table">
-    <% @data.each do |obj| %>
-    <tr>
-        <td>画像</td>
-        <td>なまえ</td>
-        <td><%= obj.created_at %></td>
-        <td><%= obj.content %></td>
-        <td><a href="/posts/edit/<%= obj.id %>">編集</a></td>
-        <td><a href="javascript:delData(<%= obj.id %>);">削除</a></td>
-    </tr>
+    <h1>タイムライン</h1>
+    <table class="table">
+        <% @data.each do |obj| %>
+        <tr>
+            <td>画像</td>
+            <td>なまえ</td>
+            <td><%= obj.created_at %></td>
+            <td><%= obj.content %></td>
+            <td><a href="/posts/edit/<%= obj.id %>">編集</a></td>
+            <td><a href="javascript:delData(<%= obj.id %>);">削除</a></td>
+        </tr>
+        <% end %>
+    </table>
+    </div>
+
+    <div class="form">
+    <%= form_for(@post, url:{controller:'posts', action:'create'}) do |f| %>
+        <div class="form_group">
+            <label for="content">投稿内容</label>
+            <%= f.text_area :content ,{class: "form-control"}%>
+        </div>
+        <div class="button">
+        <%= f.submit "投稿" ,{class: "btn2"}%>
+        </div>
     <% end %>
-</table>
 </div>
 
-<div class="form">
-<%= form_for(@post, url:{controller:'posts', action:'create'}) do |f| %>
-    <div class="form_group">
-        <label for="content">投稿内容</label>
-        <%= f.text_area :content ,{class: "form-control"}%>
-    </div>
-    <div class="button">
-      <%= f.submit "投稿" ,{class: "btn2"}%>
-    </div>
-<% end %>
-</div>
-
-<script>
-function delData(num){
-    if(confirm('この投稿を削除しますか？')){
-        document.location = "/posts/delete/" + num;
+    <script>
+    function delData(num){
+        if(confirm('この投稿を削除しますか？')){
+            document.location = "/posts/delete/" + num;
+        }
+        return false;
     }
-    return false;
-}
-</script>
+    </script>

@@ -1,9 +1,17 @@
 <div class="profile_edit">
     <h1>プロフィール編集</h1>
     <div class="edit_mydata">
-        <%= form_for(@users ,url:{controller:'users', action: 'edit',id:@users.id}) do |f| %>
+        <% if @user.errors.any? %>
+            <ul>
+            <% @user.errors.full_messages.each do |err| %>
+                <li class='validates'><%= err %></li>
+            <% end %>
+            </ul>
+        <% end %>
+        <%= form_for(@user,url:{controller:'users',action:'update'}) do |f| %>
         <div class="form-group">
             <label for="image">画像</label>
+            <%= f.file_field :image, {class: 'image'} %>
         </div>
         <div class="form-group">
             <label for="name">ニックネーム</label>

@@ -82,3 +82,25 @@ span{
     color:#D6D6D6;
     background-color:#B87C0D;
 }
+
+.validates{
+    color:#D6474C;
+    list-style-type: disc;
+    text-shadow: 1px 1px 1px black; 
+}
+
+.new_form label, .login_form label{
+    color:white;
+    text-shadow: 1px 1px 3px black;
+    margin-right: 30px;
+    width:150px
+}
+
+.new_form, .login_form{
+    margin:40px 0;
+}
+
+.new_form input, .login_form input{
+    border:2px solid;
+    border-radius: 5px;
+}

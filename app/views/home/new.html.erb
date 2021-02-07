@@ -1,17 +1,24 @@
 <div class="wrap">
     <div class="new">
         <h1>新規登録</h1>
+        <% if @user.errors.any? %>
+            <ul>
+            <% @user.errors.full_messages.each do |err| %>
+                <li class='validates'><%= err %></li>
+            <% end %>
+            </ul>
+        <% end %>
         <%= form_for(@user, url:{controller:'users', action:'create'}) do |f| %>
         <div class="new_form">
-            <label for=mail>メールアドレス</label for>
+            <label for=mail>メールアドレス</label>
             <%= f.text_field :mail %>
         </div>
         <div class="new_form">
-            <label for=name>ニックネーム</label for>
+            <label for=name>ニックネーム</label>
             <%= f.text_field :name %>
         </div> 
         <div class="new_form">
-            <label for=password>パスワード</label for>
+            <label for=password>パスワード</label>
             <%= f.text_field :password %>
         </div>
         <div class="btn1">
