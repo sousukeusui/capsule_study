@@ -11,6 +11,7 @@ class PostsController < ApplicationController
       flash[:notice] = "投稿が完了しました"
       redirect_to '/posts'
     else
+      @data = Post.all
       render 'index'
     end
   end

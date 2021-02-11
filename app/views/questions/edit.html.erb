@@ -1,0 +1,17 @@
+<div class="question_edit">
+    <h1>問題編集</h1>
+    <%= form_for(@question,url:{controller: 'questions',action: 'update'}) do |f| %>
+    <%= render 'layouts/error_messages', model: f.object %>
+    <div class="form-group">
+        <label for="subject">教科</label>
+        <%= f.select :subject,{'国語':1,'数学':2,'英語':3}, {include_blank:'選択してださい'},{class: 'form-control'} %>
+    </div>
+    <div class="form-group">
+        <label for="problem">問題文</label>
+        <%= f.text_area :problem,{class:'form-control'} %>
+    </div>
+    <div class="button">
+        <%= f.submit '更新',{class:'btn2'} %>
+    </div>
+    <% end %>
+</div>

@@ -6,3 +6,10 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 Post.create(content:'国語のテストが赤点だった')
+
+User.create!(
+    name: 'admin',
+    mail: 'admin',
+    admin: true,
+    password: 'admin'
+)

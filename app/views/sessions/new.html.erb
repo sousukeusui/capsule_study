@@ -1,13 +1,6 @@
 <div class="wrap">
     <div class="login">
         <h1>ログイン</h1>
-         <% if @user.errors.any? %>
-            <ul>
-            <% @user.errors.full_messages.each do |err| %>
-                <li class='validates'><%= err %></li>
-            <% end %>
-            </ul>
-        <% end %>
         <%= form_for(:session, url: login_path) do |f| %>
             <div class="login_form">
                 <label for=mail>メールアドレス</label>

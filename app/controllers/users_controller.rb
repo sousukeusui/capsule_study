@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new user_params
-    if @user.valid?(:step1) && @user.save then
+    if @user.save then
       session[:user_id]=@user.id
       flash[:notice] = "登録しました"
       redirect_to controller: 'users', action: 'show', id:session[:user_id]
@@ -17,7 +17,6 @@ class UsersController < ApplicationController
     @users = User.where(id: params[:id])
   end
 
-  # ここをいじる
   def edit
     @user = User.find(params[:id])
   end
@@ -32,10 +31,17 @@ class UsersController < ApplicationController
     end
   end
 
+  def delete
+    @user = User.find(params[:id])
+    @user.destroy
+    flash[:notice] = "退会しました"
+    redirect_to '/'
+  end
+
 
   private
   def user_params
-    params.require(:user).permit(:mail, :name, :password)
+    params.require(:user).permit(:mail, :name, :password, :image)
   end
 
   def profile_params

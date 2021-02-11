@@ -12,10 +12,11 @@
         </tr>
         <% end %>
     </table>
-    </div>
 
+</div>
     <div class="form">
     <%= form_for(@post, url:{controller:'posts', action:'create'}) do |f| %>
+    <%= render 'layouts/error_messages', model: f.object %>
         <div class="form_group">
             <label for="content">投稿内容</label>
             <%= f.text_area :content ,{class: "form-control"}%>
@@ -24,7 +25,7 @@
         <%= f.submit "投稿" ,{class: "btn2"}%>
         </div>
     <% end %>
-</div>
+    </div>
 
     <script>
     function delData(num){

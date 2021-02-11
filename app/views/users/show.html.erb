@@ -4,7 +4,7 @@
             <% @users.each do |obj| %>
                 <div class="name">
                     <p><%= obj.name %></p>
-                    <p><%= image_tag "#{obj.image}" %></p>
+                    <p class='profile_image'><%= image_tag "#{obj.image}" %></p>
                 </div>
                 <div class="content">
                     <p class='introduce'>自己紹介</p>

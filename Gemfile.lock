@@ -241,6 +241,7 @@ DEPENDENCIES
   carrierwave
   jbuilder (~> 2.7)
   listen (~> 3.3)
+  mini_magick
   pg (~> 1.1)
   pry-rails
   puma (~> 5.0)

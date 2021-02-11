@@ -7,10 +7,23 @@
         <% end %>
             <li>ハンガー</li>
         <% if current_user %>
-            <li><a href="/users/show/<%= current_user.id %>">ユーザー画像</a></li>
+            <li><a href="/users/show/<%= current_user.id %>"><%= image_tag(current_user.image.thumb.url) %></a></li>
             <li><a href="/questions/new">問題</a></li>
             <li>ポイント</li>
+        <% if current_user.admin? %>
+            <li><a href="/questions/index">問題一覧/作成</a></li>
+        <% end %>
             <li><%= link_to "ログアウト","/logout", method: :delete %></li>
+            <li><%= link_to "退会","javascript:delteData(#{current_user.id})" %></li>
         <% end %>
     </ul>
 </div>
+
+<script>
+    function delteData(num){
+        if(confirm('本当に退会しますか？')){
+            document.location = "/users/delete/" + num;
+        }
+        return false;
+    }
+</script>

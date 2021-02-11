@@ -1,14 +1,8 @@
 <div class="wrap">
     <div class="new">
         <h1>新規登録</h1>
-        <% if @user.errors.any? %>
-            <ul>
-            <% @user.errors.full_messages.each do |err| %>
-                <li class='validates'><%= err %></li>
-            <% end %>
-            </ul>
-        <% end %>
         <%= form_for(@user, url:{controller:'users', action:'create'}) do |f| %>
+        <%= render 'layouts/error_messages', model: f.object %>
         <div class="new_form">
             <label for=mail>メールアドレス</label>
             <%= f.text_field :mail %>
