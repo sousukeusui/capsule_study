@@ -1,2 +1,22 @@
-<h1>Questions#answer</h1>
-<p>Find me in app/views/questions/answer.html.erb</p>
+<div class="answer">
+    <h1>問題解答</h1>
+    <p>問題を読み最も正しいものを1~4から選んで解答してください</p>
+    <div class="problem">
+       <% @questions.each do |obj| %>
+            <ul>
+                <li><%= obj.problem %></li>
+            </ul>
+            <%= form_for(:session,url:{controller:'questions',action:'answer_check'}) do |f|  %>
+            <div class="form_group">  
+            <% 4.times do %>
+                <%= f.radio_button :answer,@answers[a][b] %>
+                <label for="answer"><%= @answers[a][b]%></label>
+            <% end %> 
+            </div>
+            <div class="button">
+                <%= f.submit '解答終了',{class:'btn2'} %>
+            </div>
+            <% end %>
+       <% end %>
+    </div>
+</div>

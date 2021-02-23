@@ -10,7 +10,7 @@
         <tr>
             <td><%= obj.subject %></td>
             <td><%= obj.problem %></td>
-            <td>答え</td>
+            <td><%= obj.answer %></td>
             <td><a href="/questions/edit/<%= obj.id %>">編集</a></td>
             <td><a href="javascript:delData(<%= obj.id %>);">削除</a></td>
         </tr>
@@ -28,6 +28,10 @@
         <div class="form_group">
             <label for="problem">問題文</label>
             <%= f.text_area :problem ,{class: 'form-control'} %>
+        </div>
+        <div class="form_group">
+            <%= f.label :answer,'答え' %>
+            <%= f.text_field :answer,{class:'form-control'} %>
         </div>
         <div class="button">
             <%= f.submit "保存" ,{class: 'btn2'} %>

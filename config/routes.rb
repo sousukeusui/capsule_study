@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get 'questions/create' => 'questions#create'
   post 'questions/create' => 'questions#create'
   get 'questions/delete/:id' => 'questions#delete'
+  post 'questions/answer_check' => 'questions#answer_check'
   get 'users/new'
   get 'users/create'
   get 'users/show/:id' => 'users#show'
