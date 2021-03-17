@@ -1,22 +1,43 @@
 <div class="answer">
     <h1>問題解答</h1>
-    <p>問題を読み最も正しいものを1~4から選んで解答してください</p>
+    <p>問題を読み最も正しいものを選んで解答してください</p>
+    <%= javascript_pack_tag 'countdownTimer' %>
+    <div class="timer_area">残り時間<p id="timer">600</p>秒</div>
     <div class="problem">
-       <% @questions.each do |obj| %>
-            <ul>
-                <li><%= obj.problem %></li>
-            </ul>
-            <%= form_for(:session,url:{controller:'questions',action:'answer_check'}) do |f|  %>
-            <div class="form_group">  
-            <% 4.times do %>
-                <%= f.radio_button :answer,@answers[a][b] %>
-                <label for="answer"><%= @answers[a][b]%></label>
-            <% end %> 
-            </div>
-            <div class="button">
-                <%= f.submit '解答終了',{class:'btn2'} %>
-            </div>
-            <% end %>
-       <% end %>
+        <% a=0 %>
+        <% number = 1 %>
+    <%= form_tag(url:{controller:'questions',action:'result'}) do |f|  %>
+        <table class="table">
+        <tr>
+                <th>No.</th>
+                <th>問題</th>
+                <th>選択肢</th>
+        </tr>
+        <% @questions.each do |obj| %>
+            <% b=0 %>
+            <tr>
+                <td><%= number %></td>
+                <td><%= obj.problem %></td>
+                <div class="form_group">
+                    <%= hidden_field_tag :proid[a], @id[a] %>
+                    <% 4.times do %>
+                    <td>
+                        <%= check_box_tag :selfa[a],@answers[a][b],false,{} %>
+                        <%= label_tag @answers[a][b]%>
+                    </td>
+                    <% b+=1 %>
+                    <% end %>
+                </div>
+            </tr>
+                <% if a+b == 8 %>
+                    <div class="button">
+                        <%= submit_tag '解答終了',{class:'btn2',id:'end'} %>
+                    </div>
+                <% end  %>
+                <% a+=1 %>
+                <% number+=1 %>
+        <% end %>
+        </table>
+    <% end %>
     </div>
 </div>

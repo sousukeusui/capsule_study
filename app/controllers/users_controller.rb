@@ -5,6 +5,8 @@ class UsersController < ApplicationController
     @user = User.new user_params
     if @user.save then
       session[:user_id]=@user.id
+      now_time = Time.now
+      @user.update(logged_in: now_time,point: 500)
       flash[:notice] = "登録しました"
       redirect_to controller: 'users', action: 'show', id:session[:user_id]
     else

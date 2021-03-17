@@ -9,7 +9,7 @@
         <% if current_user %>
             <li><a href="/users/show/<%= current_user.id %>"><%= image_tag(current_user.image.thumb.url) %></a></li>
             <li><a href="/questions/new">問題</a></li>
-            <li>ポイント</li>
+            <li><%= current_user.point %>P</li>
         <% if current_user.admin? %>
             <li><a href="/questions/index">問題一覧/作成</a></li>
         <% end %>

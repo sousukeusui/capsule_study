@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'questions/edit/:id' =>'questions#edit'
   patch 'questions/edit/:id' => 'questions#update'
   get 'questions/answer'
+  post 'questions/answer' => 'questions#result'
   get 'questions/result'
   get 'questions/create' => 'questions#create'
   post 'questions/create' => 'questions#create'

@@ -33,6 +33,18 @@
             <%= f.label :answer,'答え' %>
             <%= f.text_field :answer,{class:'form-control'} %>
         </div>
+        <div class="form_group">
+            <%= f.label :mistake1,'不正解１' %>
+            <%= f.text_field :mistake1,{class:'form-control'} %>
+        </div>
+        <div class="form_group">
+            <%= f.label :mistake2,'不正解2' %>
+            <%= f.text_field :mistake2,{class:'form-control'} %>
+        </div>
+        <div class="form_group">
+             <%= f.label :mistake3,'不正解3' %>
+             <%= f.text_field :mistake3,{class:'form-control'} %>
+        </div>
         <div class="button">
             <%= f.submit "保存" ,{class: 'btn2'} %>
         </div>

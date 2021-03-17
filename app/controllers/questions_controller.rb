@@ -30,82 +30,81 @@ before_action :require_admin, only:[:create]
   end
 
   def answer
-    answers1 = []
-    answers2 = []
-    answers3 = []
-    answers4 = []
-    answers5 = []
-    @answers = []
-    answers = []
-    dummys = []
-    dummy = '不正解'
-    n=0
-    t=0
-    l=1
-    # データベースからランダムにデータをとりだす
-    @questions = Question.order("RANDOM()").limit(5)
-    # 取り出したデータのanswerカラムのデータを一つずつanswers配列に格納
-    @questions.each do |question|
-        answers << question.answer
-    end 
-    # answers配列に格納したデータを分ける
-    answers1 << answers[0]
-    answers2 << answers[1]
-    answers3 << answers[2]
-    answers4 << answers[3]
-    answers5 << answers[4]
- 
-    # 不正解の配列を作る
-    15.times do 
-      dummys << dummy
+    @user = current_user
+    if @user.point < 100
+      redirect_to '/questions/new', notice: 'ポイントが足りません'
+    elsif @user.point >= 100
+      used_point = @user.point - 100
+      @user.update(point: used_point)
     end
 
-    @answers = [answers1,answers2,answers3,answers4,answers5]
+      answers = []
+      @answers = []
+      @id = []
+      num = 0
 
-    dummys.each.with_index(1) do |dum,i|
-      @answers[n][1+t] = dum
-      t +=1
-      if i == 3*l
-        n+=1
-        l+=1
-        t=0
+      # データベースからランダムにデータをとりだす
+      @questions = Question.order("RANDOM()").limit(5)                   
+      # 取り出したデータのanswerカラムのデータを一つずつanswers配列に格納,misatakeカラムのデータをdummys配列に格納
+      @questions.each do |question|
+          answers << question.answer
+          answers << question.mistake1
+          answers << question.mistake2
+          answers << question.mistake3
+          @id << question.id 
+      end 
+
+      #answersに格納したデータを１つの問題ごとに分割し、選択肢作成
+      answers = answers.each_slice(4).to_a
+
+      #選択肢をシャッフル
+      while num<5 do
+        @answers[num] = answers[num].shuffle
+        num +=1
       end
     end
-    p @answers
-    
-    
 
-
-  end
-
-  def answer_check
-    
-  end
-
-  def answer_random
-    n = 0
-    result = nil 
-
-    while n<5
-      n = n+1
-      reslut = (1..4).to_a.sample(1)
-      if result == 1 && n ==1 
-        @answer1 = Question.answer
-
-      elsif result ==1 && n ==2
-        @answer2 = Question.answer
-
-      elsif result ==1 && n ==3
-        @answer3 = Question.answer
-
-      elsif result == 1 && n ==4
-        @answer4 = Question.answer
-
-      end
-    end
-  end
 
   def result
+    user = current_user
+    point = user.point
+    result = []
+    @questions = []
+    @answers = []
+    (0..4).each do |number|
+      question = Question.find(params[:proid[number]])
+      @questions << question.problem
+      @answers << question.answer
+      if  params[:selfa[number]] == question.answer
+        result[number] = "正解"
+      else
+        result[number] = "不正解"
+      end
+    end
+
+    number_questions = @questions.size 
+    @correct = result.count("正解")
+    p answer_rate = @correct.to_f / number_questions.to_f
+
+    if answer_rate < 0.2
+      @msg = '頑張ろう'
+      user.update(point:point + 10)
+    elsif answer_rate >=0.2 && answer_rate < 0.4
+      @msg = 'うんうん'
+      user.update(point:point + 20)
+    elsif answer_rate >= 0.4 && answer_rate < 0.6
+      @msg = 'あと半分！'
+      user.update(point:point + 50)
+    elsif answer_rate >= 0.6 && answer_rate <0.8
+      @msg = 'もうちょっと！'
+      user.update(point:point + 70)
+    elsif answer_rate >=0.8 && answer_rate < 1
+      @msg = 'あと一歩'
+      user.update(point:point + 150)
+    elsif answer_rate == 1
+      @msg = '満点おめでとう！！'
+      user.update(point:point + 200 )
+    end
   end
 
   def create 
@@ -120,7 +119,11 @@ before_action :require_admin, only:[:create]
 
   private
   def question_params
-    params.require(:question).permit(:subject,:problem,:answer)
+    params.require(:question).permit(:subject,:problem,:answer,:mistake1,:mistake2,:mistake3)
+  end
+
+  def session_params
+    params.require(:session).permit(:answer)
   end
 
   
