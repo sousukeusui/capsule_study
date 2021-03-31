@@ -1,37 +1,46 @@
-<div class="data">
-    <h1>タイムライン</h1>
-    <table class="table">
-        <% @data.each do |obj| %>
-        <tr>
-            <td>画像</td>
-            <td>なまえ</td>
-            <td><%= obj.created_at %></td>
-            <td><%= obj.content %></td>
-            <td><a href="/posts/edit/<%= obj.id %>">編集</a></td>
-            <td><a href="javascript:delData(<%= obj.id %>);">削除</a></td>
-        </tr>
-        <% end %>
-    </table>
-
-</div>
-    <div class="form">
+<button class="btn post-btn" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+    <i class="far fa-plus-square"></i>&nbsp;投稿
+</button>
+<div class="form collapse" id="collapseExample">
     <%= form_for(@post, url:{controller:'posts', action:'create'}) do |f| %>
-    <%= render 'layouts/error_messages', model: f.object %>
-        <div class="form_group">
-            <label for="content">投稿内容</label>
-            <%= f.text_area :content ,{class: "form-control"}%>
+    <div class="input-group">
+        <div class="cp_iptxt">
+            <%= render 'layouts/error_messages', model: f.object %>
+            <%= f.text_area :content ,{class: "ef"}%>
+            <span class="focus_bg"></span>
         </div>
-        <div class="button">
-        <%= f.submit "投稿" ,{class: "btn2"}%>
-        </div>
-    <% end %>
+        <span class="cp_iptxt-btn input-group-addon">
+            <%= f.submit "投稿する" ,{class: "btn-sticky"}%>
+        </span>
     </div>
+    <% end %>
+</div>
 
-    <script>
-    function delData(num){
-        if(confirm('この投稿を削除しますか？')){
+<div class="data-wrap">
+    <h1>タイムライン</h1>
+    <div class="container">
+        <div class="row offset-xl-1">
+            <% @data.each do |obj| %>
+            <section class="card col-xl-3 col-md-5 col-10">
+                <div class="flex card-content">
+                    <p class="card-title"><%= obj.user.name %></p>
+                    <p class="card-time"><%= obj.created_at %></p>
+                </div>
+                <div class="flex">
+                    <p><%=image_tag"#{obj.user.image.thumb2.url}",class:"card-img" %></p>
+                    <p class="card-text content"><%= obj.content %></p>
+                </div>
+            </section>
+            <% end %>
+        </div>
+    </div>
+</div>
+
+<script>
+    function delData(num) {
+        if (confirm('この投稿を削除しますか？')) {
             document.location = "/posts/delete/" + num;
         }
         return false;
     }
-    </script>
+</script>

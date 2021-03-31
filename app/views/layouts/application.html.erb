@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <title>CapusleStudy</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
@@ -9,17 +10,25 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link rel=“stylesheet” href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.css">
-  </head>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
+</head>
 <body>
-  <header class="side">
-    <%= render template:'layouts/sidebar' %>
-  </header>
-  <div class="main">
-    <%flash.each do |message_type, message| %>
-      <%= message %>
-    <% end %>
-    <%= yield %>
-  </div>
-  </body>
+    <header class="fixed-top">
+    <%= render template: 'layouts/header' %>
+    </header>
+    <div class="main">
+        <%flash.each do |message_type, message| %>
+        <%= message %>
+        <% end %>
+        <%= yield %>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/iScroll/5.2.0/iscroll.min.js"></script>
+    <footer>
+        <%= render template: 'layouts/footer' %>
+    </footer>
+    </div>
+</body>
+
 </html>

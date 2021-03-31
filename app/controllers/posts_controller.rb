@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   def index
-    @data = Post.all
+    @data = Post.all.order(created_at: :desc)
+    @user = User.all
     @post = Post.new
   end
 

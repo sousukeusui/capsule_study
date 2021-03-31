@@ -1,17 +1,17 @@
-<div class="wrap">
-    <div class="login">
-        <h1>ログイン</h1>
+<div id="topwrap">
+    <div class="form-wrapper">
+        <h3>ログイン</h3>
         <%= form_for(:session, url: login_path) do |f| %>
-            <div class="login_form">
-                <label for=mail>メールアドレス</label>
-                <%= f.text_field :mail %>
+            <div class="form-item">
+                <label for=mail></label>
+                <%= f.text_field :mail,placeholder: "メールアドレス"%>
             </div>
-            <div class="login_form">
-                <label for=password>パスワード</label>
-                <%= f.text_field :password %>
+            <div class="form-item">
+                <label for=password></label>
+                <%= f.text_field :password,placeholder: "パスワード"%>
             </div>
-            <div class="btn1">
-                <%= f.submit 'ログイン',{class:'btn2'} %>
+            <div class="form-btn">
+                <%= f.submit 'ログイン',{class:'btn-sticky'} %>
             </div>
         <% end %>
     </div>
