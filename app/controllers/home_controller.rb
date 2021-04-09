@@ -1,5 +1,7 @@
 class HomeController < ApplicationController
   skip_before_action :login_required
+  before_action :current_user_redirect
+
   def index
   end
 

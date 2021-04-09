@@ -1,0 +1,41 @@
+.profile-edit-wrap{
+    text-align: center;
+}
+
+
+.profile-edit-wrap h1{
+    text-align: center;
+    color: white;
+    font-size: 50px;
+    font-weight: 300;
+    letter-spacing: 3px;
+    text-shadow: 1px 1px 1px #3399ff, -1px 1px 1px #3399ff, 1px -1px 1px #3399ff, -1px -1px 1px #3399ff,
+        1px 1px 1px #3399ff, -1px 1px 1px #3399ff, 1px -1px 1px #3399ff, -1px -1px 1px #3399ff;
+}
+
+.profile-edit{
+    margin-top: 50px;
+}
+
+.profile-edit textarea{
+    resize: none;
+}
+
+.profile-edit label{
+    margin-bottom:20px;
+    font-size: 20px;
+}
+
+.form-group{
+    margin:50px 0;
+}
+
+.help-block{
+    margin-top: 5px;
+}
+
+.edit-btn .btn-sticky{
+    border-top:none;
+    border-bottom: none;
+    border-right:none;
+}

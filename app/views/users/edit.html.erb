@@ -1,6 +1,6 @@
-<div class="profile_edit">
+<div class="profile-edit-wrap">
     <h1>プロフィール編集</h1>
-    <div class="edit_mydata">
+    <div class="profile-edit container">
         <%= form_for(@user,url:{controller:'users',action:'update'}) do |f| %>
         <%= render 'layouts/error_messages', model: f.object %>
         <div class="form-group">
@@ -12,12 +12,23 @@
             <%= f.text_area  :profile,{class:'form-control'} %>
         </div>
         <div class="form-group">
-            <label for="image">画像</label>
-            <%= f.file_field :image, {class: 'image'} %>
+            <label for="image">画像選択</label>
+            <input id="lefile" type="file" style="display:none">
+            <div class="input-group">
+                <input type="text" id="photoCover" class="form-control" placeholder="select file...">
+                <span class="input-group-btn"><button type="button" class="btn btn-primary" onclick="$('input[id=lefile]').click();">選択する</button></span>
+            </div>
+            <p class="help-block">● 〇〇MBまでの画像をアップロードできるよ！</p>
         </div>
-        <div class="button">
-            <%= f.submit "保存" ,{class: 'btn2'}%>
+        <div class="edit-btn">
+            <%= f.submit "保存する" ,{class: 'btn-sticky'}%>
         </div>
         <% end %>
     </div>
 </div>
+
+<script>
+    $('input[id=lefile]').change(function() {
+        $('#photoCover').val($(this).val());
+    });
+</script>

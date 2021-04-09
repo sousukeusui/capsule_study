@@ -1,6 +1,6 @@
-<div class="questions_data">
+<div class="question-index-wrap data1 container">
     <h1>問題一覧</h1>
-    <table class="table">
+    <table class="tbl-r02">
         <tr>
             <th>科目</th>
             <th>問題</th>
@@ -11,51 +11,60 @@
             <td><%= obj.subject %></td>
             <td><%= obj.problem %></td>
             <td><%= obj.answer %></td>
-            <td><a href="/questions/edit/<%= obj.id %>">編集</a></td>
-            <td><a href="javascript:delData(<%= obj.id %>);">削除</a></td>
+            <td class="td"><a class="edit" href="/questions/edit/<%= obj.id %>"><i class="far fa-edit"></i>
+                    <div class="edit-box">
+                        <p class="text">編集</p>
+                    </div>
+                </a></td>
+            <td class="td"><a class="delete" href="javascript:delData(<%= obj.id %>)"><i class="far fa-trash-alt"></i>
+                    <div class="delete-box">
+                        <p class="text">削除</p>
+                    </div>
+                </a></td>
         </tr>
         <% end %>
     </table>
-</div>
-    <div class="form">
-    <p>問題作成</p>
-    <%= form_for(@question,url:{controller: 'questions',action: 'create'}) do |f|%>
-    <%= render 'layouts/error_messages', model: f.object %>
-        <div class="form_group">
+
+    <div class="question-form">
+        <h2>問題作成</h2>
+        <%= form_for(@question,url:{controller: 'questions',action: 'create'}) do |f|%>
+        <%= render 'layouts/error_messages', model: f.object %>
+        <div class="form-group">
             <label for="subject">教科</label>
             <%= f.select :subject, {'国語':1,'数学':2,'英語':3},{include_blank:'選択してください'},{class:'form-control'}  %>
         </div>
-        <div class="form_group">
+        <div class="form-group">
             <label for="problem">問題文</label>
             <%= f.text_area :problem ,{class: 'form-control'} %>
         </div>
-        <div class="form_group">
+        <div class="form-group">
             <%= f.label :answer,'答え' %>
             <%= f.text_field :answer,{class:'form-control'} %>
         </div>
-        <div class="form_group">
+        <div class="form-group">
             <%= f.label :mistake1,'不正解１' %>
             <%= f.text_field :mistake1,{class:'form-control'} %>
         </div>
-        <div class="form_group">
+        <div class="form-group">
             <%= f.label :mistake2,'不正解2' %>
             <%= f.text_field :mistake2,{class:'form-control'} %>
         </div>
-        <div class="form_group">
-             <%= f.label :mistake3,'不正解3' %>
-             <%= f.text_field :mistake3,{class:'form-control'} %>
+        <div class="form-group">
+            <%= f.label :mistake3,'不正解3' %>
+            <%= f.text_field :mistake3,{class:'form-control'} %>
         </div>
-        <div class="button">
-            <%= f.submit "保存" ,{class: 'btn2'} %>
+        <div class="question-btn">
+            <%= f.submit "保存する" ,{class: 'btn-sticky'} %>
         </div>
-    <% end %>
+        <% end %>
     </div>
+</div>
 
-    <script>
-        function delData(num){
-            if(confirm('この問題を削除しますか？')){
-                document.location = "/questions/delete/" + num;
-            }
-            return false;
+<script>
+    function delData(num) {
+        if (confirm('この問題を削除しますか？')) {
+            document.location = "/questions/delete/" + num;
         }
-    </script>
+        return false;
+    }
+</script>

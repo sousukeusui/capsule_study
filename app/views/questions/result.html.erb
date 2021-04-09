@@ -1,10 +1,13 @@
-<div class="result">
+<div class="result_wrap">
     <h1>解答結果</h1>
-    <p>あなたの正解数は5問中<%= @correct %>問です。</p>
-    <p><%= @msg %></p>
+    <div class="box-parent">
+        <div class="box">
+            <p>あなたの正解数は5問中<%= @correct %>問です。<br>コメント:&nbsp;<%= @msg %></p>
+        </div>
+    </div>
     <div class="model_answer">
-    <p>正解確認</p>
-        <table class="table">
+        <h2>正解確認</h2>
+        <table class="tbl-r02">
         <% number = 1 %>
             <tr>    
                 <th>No.</th>
@@ -21,6 +24,12 @@
             <% end %>
         </table>
     </div>
-    <p class="btn"><a href="/questions/answer">もう一度挑戦</a></p>
-    <p class="btn"><a href="/posts">タイムラインへ</a></p>
+    <div class="result-btn-box">
+        <div class="result_btn">
+            <a class="btn-sticky" href="/questions/answer">もう一度挑戦</a>
+        </div>
+        <div class="result_btn">
+            <a class="btn-sticky" href="/posts">タイムラインへ</a>
+        </div>
+    </div>
 </div>

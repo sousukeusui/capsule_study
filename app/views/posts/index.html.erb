@@ -1,30 +1,29 @@
-<button class="btn post-btn" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-    <i class="far fa-plus-square"></i>&nbsp;投稿
-</button>
-<div class="form collapse" id="collapseExample">
-    <%= form_for(@post, url:{controller:'posts', action:'create'}) do |f| %>
-    <div class="input-group">
-        <div class="cp_iptxt">
-            <%= render 'layouts/error_messages', model: f.object %>
-            <%= f.text_area :content ,{class: "ef"}%>
-            <span class="focus_bg"></span>
+ <div class="data-wrap">   
+    <button class="btn post-btn" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+        <i class="far fa-plus-square"></i>&nbsp;投稿
+    </button>
+    <div class="form collapse" id="collapseExample">
+        <%= form_for(@post, url:{controller:'posts', action:'create'}) do |f| %>
+        <div class="input-group">
+            <div class="cp_iptxt">
+                <%= render 'layouts/error_messages', model: f.object %>
+                <%= f.text_area :content ,{class: "ef"}%>
+                <span class="focus_bg"></span>
+            </div>
+            <span class="cp_iptxt-btn input-group-addon">
+                <%= f.submit "投稿する" ,{class: "btn-sticky"}%>
+            </span>
         </div>
-        <span class="cp_iptxt-btn input-group-addon">
-            <%= f.submit "投稿する" ,{class: "btn-sticky"}%>
-        </span>
+        <% end %>
     </div>
-    <% end %>
-</div>
-
-<div class="data-wrap">
-    <h1>タイムライン</h1>
-    <div class="container">
+    <div class="data ">
+        <h1>タイムライン</h1>
         <div class="row offset-xl-1">
             <% @data.each do |obj| %>
-            <section class="card col-xl-3 col-md-5 col-10">
+            <section class="card col-xl-5 col-md-5 col-10">
                 <div class="flex card-content">
                     <p class="card-title"><%= obj.user.name %></p>
-                    <p class="card-time"><%= obj.created_at %></p>
+                    <p class="card-time"><%= l obj.created_at, format: :short %></p>
                 </div>
                 <div class="flex">
                     <p><%=image_tag"#{obj.user.image.thumb2.url}",class:"card-img" %></p>

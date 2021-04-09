@@ -4,9 +4,15 @@ $(document).on('turbolinks:load', function() {
     }
 });   
    var count = 600;
+   var timer = [];
         var countdown = function(){
             (count--);
-            document.getElementById('timer').textContent = count;    
+             //残り分数はintを60で割って切り捨てる
+            timer[0]=Math.floor(count/60);
+            //残り秒数はintを60で割った余り
+            timer[1]=count % 60;
+            document.getElementById('min').textContent = timer[0];
+            document.getElementById('second').textContent = timer[1]; 
         }
     var time = setInterval(function(){
         countdown();

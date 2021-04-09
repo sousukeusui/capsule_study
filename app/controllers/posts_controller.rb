@@ -24,6 +24,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     if request.patch? then
       @post.update(post_params)
+      flash[:notice] = "更新しました"
       redirect_to '/posts'
     end
   end
@@ -31,6 +32,7 @@ class PostsController < ApplicationController
   def delete
     @data = Post.find(params[:id])
     @data.destroy
+    flash[:notice] = "投稿を削除しました"
     redirect_to "/posts"
   end
 

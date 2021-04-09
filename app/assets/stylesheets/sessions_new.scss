@@ -16,22 +16,35 @@ input[type="password"] {
   /* Simple Reset */
   * { margin: 0; padding: 0; box-sizing: border-box; }
   
-  /* body */
+  
   /* Form Layout */
+
+  .back{
+    height:100vh;
+    background: url("/background/study1.jpg") no-repeat center ;
+    background-attachment:fixed ;
+    background-position: center center;
+    width: 100%;
+    -webkit-background-size: 100%;
+    -moz-background-size: 100%;
+    -o-background-size: 100%;
+    background-size: 100%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    padding-top: 20vh;
+  }
   .form-wrapper {
     background:rgba(250,250,250,0.7);
-    margin: 3em auto;
+    margin: 0 auto;
     padding: 0 1em 3em 1em;
     max-width: 370px;
+    text-align: center;
   }
   
   .form-wrapper h1 {
-    text-align: center;
     padding: 0.5em 0;
-  }
-  
-  form {
-    padding: 0 1.5em;
   }
   
   .form-item {

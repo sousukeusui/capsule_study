@@ -1,47 +1,47 @@
-     <div class="profile">
-        <h1>プロフィール</h1>
-        <% @users.each do |obj| %>
-            <div class="name">
-                <p><%= obj.name %></p>
-                <p class='profile_image'><%= image_tag "#{obj.image}" %></p>
-            </div>
-            <div class="content">
-                <p class='introduce'>自己紹介</p>
-                <div class="box1">
-                    <p><%= obj.profile %></p>
-                </div>
-                <div class="edit_link">
-                    <a href="/users/edit/<%= obj.id%>">プロフィール編集</a>
-                </div>
-            </div>
-        <% end %>
-        <div class="clear"></div>
-        <div class="button1 clearfix">
-            <p class="edit_btn"><a href="/questions/new">問題ガチャ</a></p>
-            <p class="edit_btn"><a href="/posts">投稿する</a></p>
+<div class="mypage-wrap container">
+    <h1>プロフィール</h1>
+    <div class="content">
+        <div class="image">
+            <p><%= @user.name %></p>
+            <%= image_tag "#{@user.image}" %>
         </div>
-        <p>自分の投稿</p>
+        <div class=" introduce">
+            <p>自己紹介</p>
+            <div class="box">
+                <%= @user.profile %>
+            </div>
+            <div class="profifle-btn">
+                <a class="btn-sticky" href="/users/edit/<%= @user.id%>">プロフィール編集</a>
+            </div>
+        </div>
     </div>
     <div class="data1">
-        <table class="table">
+        <h2>投稿一覧</h2>
+        <table class="tbl-r02">
             <% @mydata.each do |obj| %>
-                <tr>
-                    <td>画像</td>
-                    <td>名前</td>
-                    <td><%= obj.created_at %></td>
-                    <td><%= obj.content %></td>
-                    <td><a href="/posts/edit/<%= obj.id %>">編集</a></td>
-                    <td><a href="javascript:delData(<%= obj.id %>)">削除</a></td>
-                </tr>
+            <tr>
+                <td><%= obj.created_at %></td>
+                <td><%= obj.content %></td>
+                <td class="td"><a class="edit" href="/posts/edit/<%= obj.id %>"><i class="far fa-edit"></i>
+                        <div class="edit-box">
+                            <p class="text">編集</p>
+                        </div>
+                    </a></td>
+                <td class="td"><a class="delete" href="javascript:delData(<%= obj.id %>)"><i class="far fa-trash-alt"></i>
+                        <div class="delete-box">
+                            <p class="text">削除</p>
+                        </div>
+                    </a></td>
+            </tr>
             <%end %>
         </table>
     </div>
-    <div class="clear1"></div>
-    <script>
-    function delData(num){
-        if(confirm('この投稿を削除しますか？')){
+</div>
+<script>
+    function delData(num) {
+        if (confirm('この投稿を削除しますか？')) {
             document.location = "/posts/delete/" + num;
         }
         return false;
     }
-    </script>
+</script>

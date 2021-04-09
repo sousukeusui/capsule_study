@@ -1,61 +1,52 @@
 <div id="topwrap">
-    <div class="container">
-      <div class="text-center">
-          <h1>Capsule Study</h1>
-          <h2>~勉強を楽しく続けよう！~</h2>
-      </div>
-      <!-- row -->
-      <div class="btns textcenter mt-4">
-        <div class="btn">
-            <a href="/new" class="btn-sticky">新規登録</a>
+    <div class="title text-center">
+            <h1>Capsule Study</h1>
+            <h2>~勉強を楽しく続けよう！~</h2>
+        <!-- row -->
+        <div class="btns textcenter mt-4">
+            <div class="btn">
+                <a href="/new" class="btn-sticky">新規登録</a>
+            </div>
+            <div class="btn">
+                <a href="/login" class="btn-sticky">ログイン</a>
+            </div>
         </div>
-        <div class="btn">
-            <a href="/login" class="btn-sticky">ログイン</a>
-        </div>
-      </div>
     </div>
     <!-- container -->
-</div>
-  <!-- headerwrap -->
-
-<div class="content-wrap">
-  <div class="container text-center">
-    <h1>capsule_studyとは？</h1>
-    <p>誰でも勉強を楽しく続けられるように、勉強の継続を手助けすることを目指して考えられたwebアプリケーションです。</p>
-  </div>
-  
-  <div class="container text-center">
-      <div class="row centered">
-        <div class="col-lg-4">
-          <h4>問題ガチャ</h4>
-          <p>問題をとけるよ</p>
-          <p>画像</p>
+    <!-- headerwrap -->
+    <div class="title2">
+        <div class="concept">
+            <h3><span>Capsule Study</span>とは？</h3>
+            <p>勉強を楽しく続けて欲しいという願いから考えられたアプリケーションです。</p>
         </div>
-        <!-- col-lg-4 -->
 
-        <div class="col-lg-4">
-          <h4>投稿</h4>
-          <p>投稿できるよ</p>
-          <p>画像</p>
+        <div class="content-group row centered">
+            <div class="content">
+                <h4>問題ガチャ</h4>
+                <p>およそ100問ある問題から<br>ランダムに解いていこう</p>
+                <%= image_tag '/images/capsule.png' ,:width => '300', :height => '400' %>
+            </div>
+            <!-- col-lg-4 -->
+
+            <div class="content">
+                <h4>シェア</h4>
+                <p>勉強の進捗度、勉強方法などなど…<br>様々なシェアをしよう</p>
+                <%= image_tag '/images/share.png',:width => '300', :height => '300'%>
+            </div>
+            <!-- col-lg-4 -->
+
+            <div class="content">
+                <h4>ポイント</h4>
+                <p>問題を解いてポイント獲得を目指そう</p>
+                <%= image_tag '/images/point.png',:width => '300', :height => '300' %>
+            </div>
         </div>
-        <!-- col-lg-4 -->
 
-        <div class="col-lg-4">
-          <h4>ポイント</h4>
-          <p>ポイントでガチャをひこう</p>
-          <p>画像</p>
+        <div class="last-concept">
+            <h3>勉強を継続して目標を達成しよう</h3>
+            <div class="home-index-btn">
+                <a href="/new" class="btn-sticky">新規登録</a>
+            </div>
         </div>
-        <!-- col-lg-4 -->
-      </div>
-      <!-- row -->
-      <br>
-      <br>
-  </div>
-
-  <div class="container text-center">
-    <h1>勉強を継続して目標を達成しよう</h1>
-    <div class="text-center">
-      <a href="#" class="btn-sticky">新規登録</a>
     </div>
-  </div>
 </div>

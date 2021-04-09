@@ -31,11 +31,13 @@ before_action :require_admin, only:[:create]
 
   def answer
     @user = current_user
-    if @user.point < 100
-      redirect_to '/questions/new', notice: 'ポイントが足りません'
-    elsif @user.point >= 100
-      used_point = @user.point - 100
-      @user.update(point: used_point)
+    unless @user.admin
+      if @user.point < 100
+        redirect_to '/questions/new', notice: 'ポイントが足りません'
+      elsif @user.point >= 100
+        used_point = @user.point - 100
+        @user.update(point: used_point)
+      end
     end
 
       answers = []

@@ -1,0 +1,174 @@
+.mypage-wrap{
+    padding: 70px 0 200px 0;
+}
+
+.mypage-wrap h1 {
+    text-align: center;
+    color: white;
+    font-size: 50px;
+    font-weight: 300;
+    letter-spacing: 3px;
+    text-shadow: 1px 1px 1px #3399ff, -1px 1px 1px #3399ff, 1px -1px 1px #3399ff, -1px -1px 1px #3399ff,
+        1px 1px 1px #3399ff, -1px 1px 1px #3399ff, 1px -1px 1px #3399ff, -1px -1px 1px #3399ff;
+}
+.data1{
+    text-align: center;
+}
+
+.data1 .tbl-r02 {
+    width: 100%;
+}
+
+.data1 .tbl-r02 a{
+    text-decoration: none;
+    color: black;
+}
+
+.tbl-r02 .td{   
+    position:relative;
+}
+
+.data1 .tbl-r02 .edit:hover{
+    color: #3399ff;
+}
+
+.data1 .tbl-r02 .delete:hover{
+    color:#3399ff;
+}
+
+.tbl-r02 .td:hover .delete-box{
+    z-index: 2;
+	display: block
+}
+
+.tbl-r02 .td:hover .edit-box{
+    z-index: 2;
+	display: block
+}
+
+.mypage-wrap .content{
+    display: flex;
+    text-align: left;
+    margin: 50px auto;
+    border-radius: 10px;
+    box-shadow: 0px 8px 16px -2px rgba(10,10,10,0.1), 5px 2px 7px 0px #dcdcdc;
+}
+
+.image{
+    text-align: left;
+    vertical-align: top;
+}
+
+.image p{
+    font-size: 25px;
+}
+
+.introduce{
+    margin-left: 50px;
+    flex-basis: 80%;
+}
+
+.introduce p{
+    font-weight: bold;
+}
+
+
+.box{
+    padding: 1em 1em;
+    background: #fff;
+    border: solid 3px #3399ff; /*線*/
+    border-radius: 10px; /*角の丸み*/
+}
+
+.profifle-btn{
+    text-align: right;
+    margin-top: 30px;
+}
+
+.delete-box{
+    position:absolute;
+	width: 50px; /* 吹き出しの幅 */
+	height: 30px; /* 吹き出しの高さ */
+	top: -20px; /* 吹き出しと三角形の高さをプラスした値 */
+	left: 0px;
+	border-radius: 10px 10px 10px 10px;
+	background-color: #ff7733;
+	display: none;
+}
+
+
+.delete-box .text{
+    font-size: 16px;
+    letter-spacing: 1.5px;
+    color: #fff;
+    font-weight: 400;
+	position: absolute;
+	top: 0px;
+	left: 10px;
+}
+
+.edit-box{
+    position:absolute;
+	width: 50px; /* 吹き出しの幅 */
+	height: 30px; /* 吹き出しの高さ */
+	top: -20px; /* 吹き出しと三角形の高さをプラスした値 */
+	left: 0px;
+	border-radius: 10px 10px 10px 10px;
+	background-color: #ff7733;
+	display: none;
+}
+
+.edit-box .text{
+    font-size: 16px;
+    letter-spacing: 1.5px;
+    color: #ffffff;
+    font-weight: 400;
+	position: absolute;
+	top: 0px;
+	left: 10px;
+}
+
+@media screen and (min-width: 	992px) {
+    .delete-box{
+        position:absolute;
+        width: 50px; /* 吹き出しの幅 */
+        height: 30px; /* 吹き出しの高さ */
+        top: -30px; /* 吹き出しと三角形の高さをプラスした値 */
+        left: 0px;
+        border-radius: 10px 10px 10px 10px;
+        background-color: #ff7733;
+        display: none;
+    }
+    
+    .delete-box .text{
+        font-size: 16px;
+        letter-spacing: 1.5px;
+        color: #ffffff;
+        font-weight: 400;
+        position: absolute;
+        top: 0px;
+        left: 10px;
+    }
+    
+    .edit-box{
+        position:absolute;
+        width: 50px; /* 吹き出しの幅 */
+        height: 30px; /* 吹き出しの高さ */
+        top: -30px; /* 吹き出しと三角形の高さをプラスした値 */
+        left: 0px;
+        border-radius: 10px 10px 10px 10px;
+        background-color: #ff7733;
+        display: none;
+    }
+
+    
+    .edit-box .text{
+        font-size: 16px;
+        letter-spacing: 1.5px;
+        color: #ffffff;
+        font-weight: 400;
+        position: absolute;
+        top: 0px;
+        left: 10px;
+    }
+  }

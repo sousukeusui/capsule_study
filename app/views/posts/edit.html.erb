@@ -1,12 +1,14 @@
-<div class="edit_form">
+<div class="posts-edit-wrap container">
     <h1>投稿編集</h1>
-    <%= form_for(@post, url:{controller:'posts', action:'edit', id:@post.id}) do |f| %>
-    <div class="form-group">
-        <label for="content">内容</label>
-        <%= f.text_area :content ,{class:"form-control"} %>
+    <div class="posts-edit">
+        <%= form_for(@post, url:{controller:'posts', action:'edit', id:@post.id}) do |f| %>
+        <div class="form-group">
+            <label for="content">内容</label>
+            <%= f.text_area :content ,{class:"form-control"} %>
+        </div>
+        <div class="edit-btn">
+            <%= f.submit '更新',{class:'btn-sticky'} %>
+        </div>
+        <% end %>
     </div>
-    <div class="button">
-        <%= f.submit '更新',{class:'btn2'} %>
-    </div>
-    <% end %>
 </div>

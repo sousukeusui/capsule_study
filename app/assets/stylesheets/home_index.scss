@@ -1,8 +1,69 @@
-.btns{
+.title {
+    height: 100vh;
+    padding-top: 35vh;
+    background: url("/background/study1.jpg") no-repeat center ;
+    background-attachment:fixed ;
+    background-position: center center;
+    width: 100%;
+    -webkit-background-size: 100%;
+    -moz-background-size: 100%;
+    -o-background-size: 100%;
+    background-size: 100%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+
+.btns {
     display: flex;
     justify-content: space-evenly;
 }
 
-#topwrap .container{
-    margin-top: 25vh;
-  }
+.title2 {
+    margin-top: 50px
+}
+
+.content-wrap {
+    margin-top: 50px;
+}
+
+.concept h3 {
+    font-size: 40px;
+}
+
+#topwrap .concept span {
+    margin-right: 10px;
+    color: white;
+    text-shadow: 1px 1px 1px #3399ff, -1px 1px 1px #3399ff, 1px -1px 1px #3399ff, -1px -1px 1px #3399ff,
+        1px 1px 1px #3399ff, -1px 1px 1px #3399ff, 1px -1px 1px #3399ff, -1px -1px 1px #3399ff;
+}
+
+.concept p {
+    margin-top: 20px;
+    font-size: 25px;
+}
+
+.content-wrap .content-group {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.content-group .content {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.content-group h4 {
+    font-weight: bold;
+}
+
+.last-concept h3 {
+    font-size: 40px;
+    font-weight: 600;
+}
+
+.home-index-btn {
+    margin-top: 70px;
+}

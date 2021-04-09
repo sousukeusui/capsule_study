@@ -1,12 +1,43 @@
-<div class="question_new">
-    <div class="description">
-        <h1>テストガチャ</h1>
-        <p>ポイントを使ってテストガチャを回してみよう！<br>問題は国語・数学・英語の３科目からランダムで作られるよ！<br>高得点目指して頑張ろう！</p>
-        <p>注意:テストガチャのボタンを押すとすぐに始まります。制限時間は○分です</p>
+<div class="question_wrap">
+    <h1>テストガチャ</h1>
+    <div class="description container">
+        <p>ポイントを使ってテストガチャを回してみよう！<br>問題は<span class="subject">国語・数学・英語</span>の３科目からランダムで作られるよ！<br>正解数に応じてポイントがもらえるよ(正解数とポイントの関係は下部に詳細あり)
+            <br>高得点目指して頑張ろう！</p>
     </div>
-    <div class="button">
-        <p class='btn'><a href="/questions/answer">ガチャを回す</a></p>
+    <table class="tbl-r02">
+        <tr>
+            <th>正解率</th>
+            <th>ポイント</th>
+        </tr>
+        <tr>
+            <th>100%</th>
+            <td>200pt</td>
+        </tr>
+        <tr>
+            <th>80%~99%</th>
+            <td>150pt</td>
+        </tr>
+        <tr>
+            <th>60%~80%未満</th>
+            <td>70pt</td>
+        </tr>
+        <tr>
+            <th>40%~60%未満</th>
+            <td>50pt</td>
+        </tr>
+        <tr>
+            <th>20%~40%未満</th>
+            <td>20pt</td>
+        </tr>
+        <tr class="last">
+            <th>20%未満</th>
+            <td>10pt</td>
+        </tr>
+    </table>
+    <div class="question_btn">
+        <a class="btn-sticky" href="/questions/answer">ガチャを回す</a>
     </div>
-    <p>100ポイント消費</p>
+    <div class="caution container">
+        <p><span>注意:</span>テストガチャのボタンを押すとすぐに始まります。制限時間は<span>10分</span>です<br>100ポイント消費</p>
+    </div>
 </div>
-
