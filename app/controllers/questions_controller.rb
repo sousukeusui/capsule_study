@@ -46,7 +46,7 @@ before_action :require_admin, only:[:create]
       num = 0
 
       # データベースからランダムにデータをとりだす
-      @questions = Question.order("RANDOM()").limit(5)                   
+      @questions = Question.order("RANDOM()").limit(10)                   
       # 取り出したデータのanswerカラムのデータを一つずつanswers配列に格納,misatakeカラムのデータをdummys配列に格納
       @questions.each do |question|
           answers << question.answer
@@ -60,7 +60,7 @@ before_action :require_admin, only:[:create]
       answers = answers.each_slice(4).to_a
 
       #選択肢をシャッフル
-      while num<5 do
+      while num<10 do
         @answers[num] = answers[num].shuffle
         num +=1
       end
@@ -73,39 +73,45 @@ before_action :require_admin, only:[:create]
     result = []
     @questions = []
     @answers = []
-    (0..4).each do |number|
-      question = Question.find(params[:proid[number]])
+    (0..9).each do |number|
+      question = Question.find(params["question#{number}"])
       @questions << question.problem
       @answers << question.answer
-      if  params[:selfa[number]] == question.answer
+      if  params["selfanswer#{number}"] == question.answer
         result[number] = "正解"
       else
         result[number] = "不正解"
       end
     end
 
-    number_questions = @questions.size 
+    @number_questions = @questions.size 
     @correct = result.count("正解")
-    p answer_rate = @correct.to_f / number_questions.to_f
+    answer_rate = @correct.to_f / @number_questions.to_f
 
     if answer_rate < 0.2
       @msg = '頑張ろう'
       user.update(point:point + 10)
+      @point = 10
     elsif answer_rate >=0.2 && answer_rate < 0.4
       @msg = 'うんうん'
       user.update(point:point + 20)
+      @point = 20
     elsif answer_rate >= 0.4 && answer_rate < 0.6
       @msg = 'あと半分！'
       user.update(point:point + 50)
+      @point = 50
     elsif answer_rate >= 0.6 && answer_rate <0.8
       @msg = 'もうちょっと！'
       user.update(point:point + 70)
+      @point = 70
     elsif answer_rate >=0.8 && answer_rate < 1
       @msg = 'あと一歩'
       user.update(point:point + 150)
+      @point = 150
     elsif answer_rate == 1
       @msg = '満点おめでとう！！'
       user.update(point:point + 200 )
+      @point = 200
     end
   end
 

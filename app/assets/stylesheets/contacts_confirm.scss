@@ -1,0 +1,45 @@
+.contact-confirm{
+    padding: 70px 0 200px 0;
+    text-align: center;
+}
+
+.contact-confirm h1 {
+    text-align: center;
+    color: white;
+    font-size: 50px;
+    font-weight: 300;
+    letter-spacing: 3px;
+    text-shadow: 1px 1px 1px #3399ff, -1px 1px 1px #3399ff, 1px -1px 1px #3399ff, -1px -1px 1px #3399ff,
+        1px 1px 1px #3399ff, -1px 1px 1px #3399ff, 1px -1px 1px #3399ff, -1px -1px 1px #3399ff;
+}
+
+.contact-confirm .tbl-r02 p {
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    margin: 60px auto 0 auto;
+}
+.contact-confirm .tbl-r02{
+    width:70%;
+    margin: 70px auto 0 auto;
+}
+.tbl-r02 th {
+    background: #e9727e;
+    border: solid 1px #ccc;
+    padding: 10px;
+    color:#fff;
+}
+.tbl-r02 td {
+    border: solid 1px #ccc;
+    padding: 10px;
+}
+ .contact-confirm .confirm-form{
+    display: inline-block;
+    margin: 70px 50px 0 50px;
+}
+
+.contact-confirm .btn-sticky {
+    border-top: none;
+    border-bottom: none;
+    border-right: none;
+}

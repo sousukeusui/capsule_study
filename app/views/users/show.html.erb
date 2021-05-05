@@ -10,6 +10,10 @@
             <div class="box">
                 <%= @user.profile %>
             </div>
+            <p>目標</p>
+            <div class="box">
+                <%= @user.goal %>
+            </div>
             <div class="profifle-btn">
                 <a class="btn-sticky" href="/users/edit/<%= @user.id%>">プロフィール編集</a>
             </div>
@@ -20,7 +24,7 @@
         <table class="tbl-r02">
             <% @mydata.each do |obj| %>
             <tr>
-                <td><%= obj.created_at %></td>
+                <td><%= l obj.created_at,format: :default%></td>
                 <td><%= obj.content %></td>
                 <td class="td"><a class="edit" href="/posts/edit/<%= obj.id %>"><i class="far fa-edit"></i>
                         <div class="edit-box">

@@ -2,12 +2,12 @@
     <button class="btn post-btn" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
         <i class="far fa-plus-square"></i>&nbsp;投稿
     </button>
+    <%= form_for(@post, url:{controller:'posts', action:'create'}) do |f| %>
+    <%= render 'layouts/error_messages', model: f.object %>
     <div class="form collapse" id="collapseExample">
-        <%= form_for(@post, url:{controller:'posts', action:'create'}) do |f| %>
         <div class="input-group">
             <div class="cp_iptxt">
-                <%= render 'layouts/error_messages', model: f.object %>
-                <%= f.text_area :content ,{class: "ef"}%>
+                <%= f.text_area :content ,class: "ef",placeholder:"投稿内容",id:'session_post'%>
                 <span class="focus_bg"></span>
             </div>
             <span class="cp_iptxt-btn input-group-addon">

@@ -1,5 +1,6 @@
 .profile-edit-wrap{
     text-align: center;
+    padding: 70px 0 200px 0;
 }
 
 
@@ -17,8 +18,13 @@
     margin-top: 50px;
 }
 
+.profile-edit input{
+    border: 2px solid;
+}
+
 .profile-edit textarea{
     resize: none;
+    border: 2px solid;
 }
 
 .profile-edit label{
@@ -38,4 +44,8 @@
     border-top:none;
     border-bottom: none;
     border-right:none;
+}
+
+.profile-edit .edit-btn{
+    margin-top: 50px;
 }

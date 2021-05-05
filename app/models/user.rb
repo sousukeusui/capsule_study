@@ -6,6 +6,7 @@ class User < ApplicationRecord
     validates :name, presence: true, length: {maximum: 10}
     validates :mail, presence: true, uniqueness: true, on: :create
     validates :password_digest, presence: true,length: {minimum: 4},on: :create 
+    validates :profile,length:{maximum:100}
 
 #     with_options on: :step2 do
 #         validate :validate_name_mail_check

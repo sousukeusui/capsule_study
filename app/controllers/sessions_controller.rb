@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  require 'time'
+  require 'active_support/time'
   skip_before_action :login_required
   before_action :current_user_redirect, only:["new"]
 
@@ -14,28 +16,28 @@ class SessionsController < ApplicationController
         last_time = @user.logged_in
         new_point = @user.point + 100
         bonus = ""
-
-
-        #5時超え、かつ最終ログインから日付が１日経っている、かつcountが０
-        if now_time.hour >= 5 && now_time.yday - last_time.yday == 1  && @user.count == 0 
-          @user.update(point: new_point,count: 0)
-          bonus = ":ログインボーナス獲得!"
-
-        #5時は超えていない、かつ最終ログインから2日経っている、かつcountが０
-        elsif now_time.hour < 5 && now_time.yday - last_time.yday >= 2 && @user.count == 0
-          @user.update(point: new_point,count: 1)
-          bonus = ":ログインボーナス獲得!"
-
-        #5時超え、かつcountが1
-        elsif now_time.hour >= 5 && @user.count == 1
-          @user.update(point: new_point,count: 0)
-          bonus = ":ログインボーナス獲得!"
-        end
         
-        p bonus
+        #カウントをリセット
+        if last_time.day == now_time.yesterday.day && now_time.hour>=5
+          @user.update(count: 0)
+        elsif last_time.day == now_time.yesterday.day && last_time.hour <5 && now_time.hour <5
+          @user.update(count: 0)
+        elsif last_time.day == now_time.day && last_time.hour <5 && now_time.hour >=5
+          @user.update(count: 0)
+        elsif last_time < now_time.days_ago(2)
+          @user.update(count: 0)
+        end
+
+        #ログインボーナス条件
+        if @user.count==0
+          @user.update(point: new_point,count: 1)
+          p bonus = ":ログインボーナス獲得!"
+        end
+
         @user.update(logged_in: now_time)
         flash[:notice] ="ログインしました#{bonus}"
         redirect_to controller: 'users', action: 'show', id:session[:user_id]
+
       else
         flash[:notice] = "メールアドレス、パスワードが違います"
         render 'new'

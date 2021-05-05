@@ -11,7 +11,7 @@
             <a class="navbar-brand" href="/new">新規登録</a>
         </div>
         <% elsif %>
-        <button class=" btn btn-link btn-sm order-1 ml-2" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation" ">
+        <button class=" btn btn-link btn-sm order-1 ml-2" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation" id="hoge">
             <i class=" fas fa-bars"></i>
         </button>
         <!-- Navbar-->
@@ -37,6 +37,9 @@
             </li>
             <li class="nav-item">
                 <a class="btn btn-link nav-link" href="/posts">投稿する</a>
+            </li>
+            <li class="nav-item">
+                <a class="btn btn-link nav-link" href="/contacts/new">お問い合わせ</a>
             </li>
             <% if current_user.admin? %>
             <li class="nav-item">

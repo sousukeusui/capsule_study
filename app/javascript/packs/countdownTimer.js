@@ -2,7 +2,7 @@ $(document).on('turbolinks:load', function() {
     if(!document.URL.match("/answer/")){
         clearInterval(time);
     }
-});   
+});
    var count = 600;
    var timer = [];
         var countdown = function(){

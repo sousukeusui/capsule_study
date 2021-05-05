@@ -3,28 +3,29 @@
     <div class="timer_area">
         <div class="timer"><i class="far fa-clock"></i>残り時間<span id="min">10</span>分<span id = second>0</span>秒</div>
     </div>
-    <h2>問題を読み、最も正しいものを選んで解答してください</h2>
+    <h2>問題を読み、最も正しいものを選んで解答してください<br>英文は文をんだ後に問題分に相応しい回答を選択してください。</h2>
+    <p>なお、一つの問題で２つ以上のチェックを入れると不正解になります。</p>
     <%= javascript_pack_tag 'countdownTimer' %>
     <div class="question2_wrap">
-        <% a=0 %>
+        <% question_num=0 %>
         <% number = 1 %>
-        <%= form_tag(url:{controller:'questions',action:'result'}) do |f|  %>
+        <%= form_with url: questions_result_path do |f|  %>
             <% @questions.each do |obj| %>
-                <% b=0 %>
+                <% choices=0 %>
                 <div class="question">
                     <p class="number">第<%= number %>問:&nbsp;<%= obj.problem %></p>
-                    <%= hidden_field_tag :proid[a], @id[a] %>
+                    <%= hidden_field_tag "question#{question_num}", @id[question_num] %>
                     <% 4.times do %>
                     <div class="choices">
                         <p>
-                            <%= check_box_tag :selfa[a],@answers[a][b],false,{} %>
-                            <%= label_tag @answers[a][b]%>
+                            <%= check_box_tag "selfanswer#{question_num}",@answers[question_num][choices],false,{class:'check'} %>
+                            <%= label_tag @answers[question_num][choices]%>
                         </p>
                     </div>
-                    <% b+=1 %>
+                    <% choices+=1 %>
                     <% end %>
                 </div>
-                <% a+=1 %>
+                <% question_num+=1 %>
                 <% number +=1%>
             <% end %>
         <div class="end-btn">

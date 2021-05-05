@@ -40,13 +40,12 @@ class UsersController < ApplicationController
     redirect_to '/'
   end
 
-
   private
   def user_params
     params.require(:user).permit(:mail, :name, :password, :image)
   end
 
   def profile_params
-    params.require(:user).permit(:name, :image, :profile)
+    params.require(:user).permit(:name, :image, :profile, :goal)
   end
 end

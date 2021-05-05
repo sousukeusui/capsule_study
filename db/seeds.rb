@@ -5,11 +5,16 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Post.create(content:'国語のテストが赤点だった')
+require 'csv'
 
-User.create!(
-    name: 'admin',
-    mail: 'admin',
-    admin: true,
-    password: 'admin'
-)
+CSV.foreach('/Users/yoshidasuguru/Documents/capsule_study_data.csv',headers: true) do |row|
+    Question.create!(
+        subject: row['教科'],
+        problem: row['問題'],
+        answer: row['答え'],
+        mistake1: row['不正解1'],
+        mistake2: row['不正解2'],
+        mistake3: row['不正解3']
+
+    )
+end

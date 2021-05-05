@@ -25,7 +25,7 @@ class PostsController < ApplicationController
     if request.patch? then
       @post.update(post_params)
       flash[:notice] = "更新しました"
-      redirect_to '/posts'
+      redirect_to '/users/show/' + current_user.id.to_s
     end
   end
 
@@ -33,7 +33,7 @@ class PostsController < ApplicationController
     @data = Post.find(params[:id])
     @data.destroy
     flash[:notice] = "投稿を削除しました"
-    redirect_to "/posts"
+    redirect_to "/users/show/" + current_user.id.to_s
   end
 
   

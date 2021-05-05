@@ -1,0 +1,29 @@
+<div class="contact-confirm">
+<h1>お問い合わせ確認</h1>
+    <table class='tbl-r02'>
+        <tr>
+            <th class="text-center" style="width: 30%;">お名前</th>
+            <td><%= @contact.name %></td>
+        </tr>
+        <tr>
+            <th class="text-center">メッセージ</th>
+            <td style="white-space: pre-wrap;"><%= @contact.message %></td>
+        </tr>
+    </table>
+    <div class="confirm-form">
+            <%= form_for @contact, url: contacts_back_path do |f| %>
+            <%= f.hidden_field :name %>
+            <%= f.hidden_field :email %>
+            <%= f.hidden_field :message %>
+            <div><%= f.submit '入力画面に戻る',{class:'btn-sticky'} %></div>
+        <% end %>
+    </div>
+    <div class="confirm-form">
+        <%= form_for(@contact) do |f| %>
+            <%= f.hidden_field :name %>
+            <%= f.hidden_field :email %>
+            <%= f.hidden_field :message %>
+            <div><%= f.submit '送信',{class:'btn-sticky'}%></div>
+        <% end %>
+    </div>
+</div>

@@ -4,8 +4,8 @@ Rails.application.routes.draw do
   get 'questions/edit/:id' =>'questions#edit'
   patch 'questions/edit/:id' => 'questions#update'
   get 'questions/answer'
-  post 'questions/answer' => 'questions#result'
-  get 'questions/result'
+  post 'questions/result' => 'questions#result'
+  get 'questions/result' => 'posts#index'
   get 'questions/create' => 'questions#create'
   post 'questions/create' => 'questions#create'
   get 'questions/delete/:id' => 'questions#delete'
@@ -30,5 +30,8 @@ Rails.application.routes.draw do
   post 'login' => 'sessions#create'
   get 'login' => 'sessions#new'
   get 'logout' => 'sessions#destroy'
+  resources :contacts,only: [:new,:create]
+  post 'contacts/confirm' => 'contacts#confirm'
+  post 'contacts/back' => 'contacts#back'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
