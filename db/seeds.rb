@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'csv'
 
-CSV.foreach('/Users/yoshidasuguru/Documents/capsule_study_data.csv',headers: true) do |row|
+CSV.foreach('db/capsule_study_data.csv',headers: true) do |row|
     Question.create!(
         subject: row['教科'],
         problem: row['問題'],
@@ -18,3 +18,5 @@ CSV.foreach('/Users/yoshidasuguru/Documents/capsule_study_data.csv',headers: tru
 
     )
 end
+
+User.create(mail:'admin0721',name:'admin', password:'admin0721',admin:'true') 
