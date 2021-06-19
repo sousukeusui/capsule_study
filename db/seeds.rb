@@ -18,5 +18,3 @@ CSV.foreach('db/capsule_study_data.csv',headers: true) do |row|
 
     )
 end
-
-User.create(mail:'admin0721',name:'admin', password:'admin0721',admin:'true') 
