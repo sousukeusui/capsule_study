@@ -33,16 +33,19 @@
     <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="btn btn-link nav-link" href="/questions/new">問題を解く</a>
+                <a class="btn btn-link nav-link" href="/questions/new">管理者の問題</a>
             </li>
             <li class="nav-item">
-                <a class="btn btn-link nav-link" href="/posts">投稿する</a>
+                <a class="btn btn-link nav-link" href="/posts/questions/list">投稿された問題</a>
             </li>
             <li class="nav-item">
-                <a class="btn btn-link nav-link" href="/contacts/new">お問い合わせ</a>
+                <a class="btn btn-link nav-link" href="/posts">つぶやく</a>
             </li>
             <li class="nav-item">
                 <a class="btn btn-link nav-link" href="/posts/questions/new">問題作成/投稿</a>
+            </li>
+            <li class="nav-item">
+                <a class="btn btn-link nav-link" href="/contacts/new">お問い合わせ</a>
             </li>
             <% if current_user.admin? %>
             <li class="nav-item">

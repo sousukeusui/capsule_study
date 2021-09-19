@@ -35,5 +35,7 @@ Rails.application.routes.draw do
   post 'contacts/back' => 'contacts#back'
   get 'posts/questions/new' => 'post_questions#new'
   post 'posts/questions/new' =>'post_questions#create'
+  get 'posts/questions/list' =>'post_questions#list'
+  get 'posts/questions/start/:id' => 'post_questions#start'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
