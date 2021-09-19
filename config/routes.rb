@@ -33,5 +33,7 @@ Rails.application.routes.draw do
   resources :contacts,only: [:new,:create]
   post 'contacts/confirm' => 'contacts#confirm'
   post 'contacts/back' => 'contacts#back'
+  get 'posts/questions/new' => 'post_questions#new'
+  post 'posts/questions/new' =>'post_questions#create'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

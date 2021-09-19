@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_03_121250) do
+ActiveRecord::Schema.define(version: 2021_09_18_131802) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,14 @@ ActiveRecord::Schema.define(version: 2021_05_03_121250) do
     t.string "name", null: false
     t.string "email", null: false
     t.string "message", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "post_questions", force: :cascade do |t|
+    t.text "name", null: false
+    t.text "explanation", null: false
+    t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -40,6 +48,17 @@ ActiveRecord::Schema.define(version: 2021_05_03_121250) do
     t.string "mistake1", null: false
     t.string "mistake2", null: false
     t.string "mistake3", null: false
+  end
+
+  create_table "user_questions", force: :cascade do |t|
+    t.text "problem", null: false
+    t.text "answer", null: false
+    t.text "mistake1", null: false
+    t.text "mistake2"
+    t.text "mistake3"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "post_question_id"
   end
 
   create_table "users", force: :cascade do |t|
