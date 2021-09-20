@@ -2,18 +2,18 @@
     <table class="tbl-r02">
         <tr>
             <th>問題名</th>
-            <td><%= @post_question.name %></td>
+            <td><%= @post_questions.name %></td>
         </tr>
         <tr>
             <th>問題説明</th>
-            <td><%= @post_question.explanation %></td>
+            <td><%= @post_questions.explanation %></td>
         </tr>
         <tr>
             <th>問題数</th>
-            <td><%= @number_of_question %></td>
+            <td><%= @number_of_questions %></td>
         </tr>
     </table>
     <div class="post-questions-btn">
-        <a href='/posts/questions/answer/<%= @post_question.id %>' class="btn-sticky">始める</a>
+        <a href='/posts/questions/answer/<%= @post_questions.id %>' class="btn-sticky">始める</a>
     </div>
 </div>

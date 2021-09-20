@@ -64,7 +64,7 @@ before_action :require_admin, only:[:create]
         @answers[num] = answers[num].shuffle
         num +=1
       end
-    end
+  end
 
 
   def result
