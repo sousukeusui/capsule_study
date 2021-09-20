@@ -24,6 +24,14 @@ class PostQuestionsController < ApplicationController
         @number_of_question = user_question.count
     end
 
+    def answer
+        @user_question = UserQuestion.where(post_question_id: params[:id])
+    end
+
+    def result
+
+    end
+
     private
     def post_question_params
         params.require(:post_question).permit(:name,:explanation, user_questions_attributes:[:problem,:answer,:mistake1,:mistake2,:mistake3,])
