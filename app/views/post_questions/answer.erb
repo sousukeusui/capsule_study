@@ -9,7 +9,7 @@
     <div class="question2_wrap">
         <% question_num=0 %>
         <% number = 1 %>
-        <%= form_with url: questions_result_path do |f|  %>
+        <%= form_with url: {controller: 'post_questions', action: 'result'} do |f|  %>
             <% @user_questions.each do |obj| %>
                 <% choices=0 %>
                 <div class="question">

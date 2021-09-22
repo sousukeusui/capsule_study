@@ -1,0 +1,39 @@
+<div class="result_wrap">
+    <h1>解答結果</h1>
+    <div class="box-parent">
+        <div class="box">
+            <p>あなたの正解数は<%= @number_questions %>問中<%= @correct %>問です。<br><%= @point %>ポイント獲得！<br>コメント:&nbsp;<%= @msg %></p>
+        </div>
+    </div>
+    <div class="model_answer">
+        <a class="btn-sticky" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+            正解を確認する
+        </a>
+        <div class="collapse" id="collapseExample">
+        <table class="tbl-r02">
+            <% number = 1 %>
+            <tr>
+                <th>No.</th>
+                <th>問題</th>
+                <th>正解</th>
+            </tr>
+            <% @questions.zip(@answers) do |question,answer| %>
+            <tr>
+                <td><%= number %></td>
+                <td><%= question %></td>
+                <td><%= answer %></td>
+            </tr>
+            <% number+=1 %>
+            <% end %>
+        </table>
+        </div>
+    </div>
+    <div class="result-btn-box">
+        <div class="result_btn">
+            <a class="btn-sticky" href="/questions/answer">もう一度挑戦</a>
+        </div>
+        <div class="result_btn">
+            <a class="btn-sticky" href="/posts">タイムラインへ</a>
+        </div>
+    </div>
+</div>
