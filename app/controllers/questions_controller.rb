@@ -73,18 +73,18 @@ before_action :require_admin, only:[:create]
     result = []
     @questions = []
     @answers = []
-    (0..9).each do |number|
-      question = Question.find(params["question#{number}"])
+    (0..9).each do |question_num|
+      question = Question.find(params["question#{question_num}"])
       @questions << question.problem
       @answers << question.answer
-      if  params["selfanswer#{number}"] == question.answer
-        result[number] = "正解"
+      if  params["selfanswer#{question_num}"] == question.answer
+        result[question_num] = "正解"
       else
-        result[number] = "不正解"
+        result[question_num] = "不正解"
       end
     end
 
-    @number_questions = @questions.size 
+    @number_questions = @questions.size
     @correct = result.count("正解")
     answer_rate = @correct.to_f / @number_questions.to_f
 

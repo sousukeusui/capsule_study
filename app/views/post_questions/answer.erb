@@ -15,6 +15,7 @@
                 <div class="question">
                     <p class="number">第<%= number %>問:&nbsp;<%= obj.problem %></p>
                     <%= hidden_field_tag "question#{question_num}", @id[question_num] %>
+                    <%= hidden_field_tag :id, obj.id %>
                     <% 4.times do %>
                     <div class="choices">
                         <p>

@@ -49,7 +49,7 @@ class PostQuestionsController < ApplicationController
             answers << question.mistake1
             answers << question.mistake2
             answers << question.mistake3
-            @id << question.id 
+            @id << question.id
         end 
 
         #answersに格納したデータを１つの問題ごとに分割し、選択肢作成
@@ -63,7 +63,54 @@ class PostQuestionsController < ApplicationController
     end
 
     def result
-        
+        user = current_user
+        point = user.point
+        result = []
+        @questions = []
+        @answers = []
+        user_questions = UserQuestion.where(post_question_id: params[:id])
+        @number_questions = user_questions.count
+        max_questions = @number_questions - 1
+
+        (0..max_questions).each do |question_num|
+            question = UserQuestion.find(params["question#{question_num}"])
+            @questions << question.problem
+            @answers << question.answer
+            if  params["selfanswer#{question_num}"] == question.answer
+                result[question_num] = "正解"
+            else
+                result[question_num] = "不正解"
+            end
+        end
+
+        @correct = result.count("正解")
+        answer_rate = @correct.to_f / @number_questions.to_f
+
+        if answer_rate < 0.2
+            @msg = '頑張ろう'
+            user.update(point:point + 10)
+            @point = 10
+        elsif answer_rate >=0.2 && answer_rate < 0.4
+            @msg = 'うんうん'
+            user.update(point:ƒpoint + 20)
+            @point = 20
+        elsif answer_rate >= 0.4 && answer_rate < 0.6
+            @msg = 'あと半分！'
+            user.update(point:point + 50)
+            @point = 50
+        elsif answer_rate >= 0.6 && answer_rate <0.8
+            @msg = 'もうちょっと！'
+            user.update(point:point + 70)
+            @point = 70
+        elsif answer_rate >=0.8 && answer_rate < 1
+            @msg = 'あと一歩'
+            user.update(point:point + 150)
+            @point = 150
+        elsif answer_rate == 1
+            @msg = '満点おめでとう！！'
+            user.update(point:point + 200 )
+            @point = 200
+        end
     end
 
     private
