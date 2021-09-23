@@ -39,5 +39,7 @@ Rails.application.routes.draw do
   get 'posts/questions/start/:id' => 'post_questions#start'
   get 'posts/questions/answer/:id' => 'post_questions#answer'
   post 'posts/questions/answer/:id' => 'post_questions#result'
+  get 'posts/questions/mylist/:id' => 'post_questions#mylist'
+  post 'posts/questions/mylist/:id' => 'post_questions#update'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
