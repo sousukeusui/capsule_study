@@ -1,31 +1,7 @@
-<div class="post-quuestion-mylist-wrap">
-    <h1>問題編集</h1>
-    <% i=0 %>
+<div class="post-question-mylist-wrap">
+    <h1>問題一覧</h1>
     <% @post_questions.each do |post| %>
-        <p><%= post.name %></p>
+        <a href="/posts/questions/edit/<%= post.id%>"><%= post.name %></a>
         <p><%= post.explanation %></p>
-        <%= form_with model:@user_questions[i], url:{controller:'post_questions',action:'update'} do |f| %>
-            <div class="form-group">
-                <%= f.label :problem,'問題' %>
-                <%= f.text_area :problem %>
-            </div>
-            <div class="form-group">
-                <%= f.label :answer, '答え' %>
-                <%= f.text_field :answer %>
-                </div>
-            <div class="form-group">
-                <%= f.label :mistake1, '不正解1' %>
-                <%= f.text_field :mistake1 %>
-            </div>
-            <div class="form-group">
-                <%= f.label :mistake2, '不正解2' %>
-                <%= f.text_field :mistake2 %>
-            </div>
-            <div class="form-group">
-                <%= f.label :mistake3, '不正解3' %>
-                <%= f.text_field :mistake3 %>
-            </div>
-        <% end %>
-        <% i+=1 %> 
     <% end %>
 </div>

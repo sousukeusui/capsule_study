@@ -114,20 +114,23 @@ class PostQuestionsController < ApplicationController
     end
 
     def mylist
-        @user_questions = []
         @post_questions = PostQuestion.where(user_id: params[:id])
-        @post_questions.each do |post|
-            @user_questions << UserQuestion.find_by(post_question_id: post.id)
-        end
-        p @user_questions
+    end
+
+    def edit
+        @post_question = PostQuestion.find(params[:id])
+        @user_questions = UserQuestion.where(post_question_id: params[:id])
     end
 
     def update
-
+        @post_question = PostQuestion.find(params[:id])
+        if @post_question.update(post_question_params)
+            redirect_to '/posts/questions/list' ,notice: '編集しました'
+        end
     end
 
     private
     def post_question_params
-        params.require(:post_question).permit(:name,:explanation, user_questions_attributes:[:problem,:answer,:mistake1,:mistake2,:mistake3,])
+        params.require(:post_question).permit(:name,:explanation, user_questions_attributes:[:id,:problem,:answer,:mistake1,:mistake2,:mistake3,])
     end
 end
