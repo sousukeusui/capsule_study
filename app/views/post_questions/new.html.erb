@@ -11,31 +11,22 @@
                 <%= f.label :explanation, '問題説明' %>
                 <%= f.text_area :explanation, class:"form-control"%>
             </div>
-            <%= f.fields_for :user_questions do |u| %>
-                <div class="form-group">
-                    <%= u.label :problem , '問題' %>
-                    <%= u.text_area :problem %>
-                </div>
-                <div class="form-group">
-                    <%= u.label :answer, '答え' %>
-                    <%= u.text_field :answer %>
-                </div>
-                <div class="form-group">
-                    <%= u.label :mistake1, '不正解１'%>
-                    <%= u.text_field :mistake1 %>
-                </div>
-                <div class="form-group">
-                    <%= u.label :mistake2, '不正解２'%>
-                    <%= u.text_field :mistake2 %>
-                </div>
-                <div class="form-group">
-                    <%= u.label :mistake3, '不正解３'%>
-                    <%= u.text_field :mistake3 %>
-                </div>
-            <% end %>
-                <div class="post-questions-btn">
-                    <%=  f.submit '問題作成/投稿', {class:'btn-sticky'}%>
-                </div>
+            <div class="user_questions">
+                <%= f.fields_for :user_questions do |form| %>
+                    <%= render "user_question_fields",f: form %>
+                <% end %>
+            </div>
+
+            <div id="detail-association-insertion-point"></div>
+
+            <div class="links">
+                <%= link_to_add_association "問題を追加",f,:user_questions, 
+                    data: {
+                        association_insertion_node: '#detail-association-insertion-point',
+                        association_insertion_method: 'before'
+                    }                    
+                %>
+            </div>
         <% end %>
         <a href="/posts/questions/mylist/<%= current_user.id%>">編集</a>
     </div>

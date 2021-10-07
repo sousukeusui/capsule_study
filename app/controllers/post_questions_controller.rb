@@ -1,7 +1,7 @@
 class PostQuestionsController < ApplicationController
     def new
         @post_question = PostQuestion.new
-        @post_question.user_questions.build
+        @user_questions = @post_question.user_questions.build
     end
 
     def create
@@ -131,6 +131,6 @@ class PostQuestionsController < ApplicationController
 
     private
     def post_question_params
-        params.require(:post_question).permit(:name,:explanation, user_questions_attributes:[:id,:problem,:answer,:mistake1,:mistake2,:mistake3,])
+        params.require(:post_question).permit(:name,:explanation, user_questions_attributes:[:id,:problem,:answer,:mistake1,:mistake2,:mistake3,:_destroy])
     end
 end

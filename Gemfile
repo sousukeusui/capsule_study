@@ -64,3 +64,5 @@ gem 'pry-rails'
 gem 'mini_magick'
 gem "activesupport"
 gem "dotenv-rails"
+gem 'cocoon'
+gem 'jquery-rails'
