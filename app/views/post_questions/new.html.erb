@@ -27,7 +27,9 @@
                     }                    
                 %>
             </div>
+            <div class="post-questions-btn">
+                <%= f.submit '投稿する',{class:'btn-sticky'} %>
+            </div>
         <% end %>
-        <a href="/posts/questions/mylist/<%= current_user.id%>">編集</a>
     </div>
 </div>

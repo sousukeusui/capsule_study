@@ -92,7 +92,7 @@ class PostQuestionsController < ApplicationController
             @point = 10
         elsif answer_rate >=0.2 && answer_rate < 0.4
             @msg = 'うんうん'
-            user.update(point:ƒpoint + 20)
+            user.update(point:point + 20)
             @point = 20
         elsif answer_rate >= 0.4 && answer_rate < 0.6
             @msg = 'あと半分！'
@@ -111,10 +111,6 @@ class PostQuestionsController < ApplicationController
             user.update(point:point + 200 )
             @point = 200
         end
-    end
-
-    def mylist
-        @post_questions = PostQuestion.where(user_id: params[:id])
     end
 
     def edit

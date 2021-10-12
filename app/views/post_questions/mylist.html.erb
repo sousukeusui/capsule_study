@@ -1,7 +1,0 @@
-<div class="post-question-mylist-wrap">
-    <h1>問題一覧</h1>
-    <% @post_questions.each do |post| %>
-        <a href="/posts/questions/edit/<%= post.id%>"><%= post.name %></a>
-        <p><%= post.explanation %></p>
-    <% end %>
-</div>

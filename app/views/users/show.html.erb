@@ -31,7 +31,8 @@
                             <p class="text">編集</p>
                         </div>
                     </a></td>
-                <td class="td"><a class="delete" href="javascript:delData(<%= obj.id %>)"><i class="far fa-trash-alt"></i>
+                <td class="td"><a class="delete" href="javascript:delData(<%= obj.id %>)"><i
+                            class="far fa-trash-alt"></i>
                         <div class="delete-box">
                             <p class="text">削除</p>
                         </div>
@@ -39,6 +40,30 @@
             </tr>
             <%end %>
         </table>
+    </div>
+    <div class="questions">
+        <h2>作成した問題</h2>
+        <table class="tbl-r02">
+            <tr>
+                <th>問題名</th>
+            <tr>
+                <% @questions.each do |question| %>
+            <tr>
+                <td><%= question.name%></td>
+                <td class="td"><a class="edit" href="/posts/questions/edit/<%= question.id %>"><i
+                            class="far fa-edit"></i>
+                        <div class="edit-box">
+                            <p class="text">編集</p>
+                        </div>
+                    </a></td>
+                <td class="td"><a class="delete" href="/posts/questions/destoroy/<%= question.id %>"><i class="far fa-trash-alt"></i>
+                        <div class="delete-box">
+                            <p class="text">削除</p>
+                        </div>
+                    </a></td>
+            </tr>
+            <% end %>
+            <table>
     </div>
 </div>
 <script>
