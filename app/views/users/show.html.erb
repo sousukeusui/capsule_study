@@ -1,4 +1,4 @@
-<div class="mypage-wrap container">
+<div class="mypage-wrap container col-lg-6">
     <h1>プロフィール</h1>
     <div class="content">
         <div class="image">
@@ -19,51 +19,59 @@
             </div>
         </div>
     </div>
-    <div class="data1">
-        <h2>投稿一覧</h2>
-        <table class="tbl-r02">
-            <% @mydata.each do |obj| %>
-            <tr>
-                <td><%= obj.content %></td>
-                <td><%= l obj.created_at,format: :default%></td>
-                <td class="td"><a class="edit" href="/posts/edit/<%= obj.id %>"><i class="far fa-edit"></i>
-                        <div class="edit-box">
-                            <p class="text">編集</p>
-                        </div>
-                    </a></td>
-                <td class="td"><a class="delete" href="javascript:delData(<%= obj.id %>)"><i
-                            class="far fa-trash-alt"></i>
-                        <div class="delete-box">
-                            <p class="text">削除</p>
-                        </div>
-                    </a></td>
-            </tr>
-            <%end %>
-        </table>
-    </div>
-    <div class="user_questions">
-        <h2>作成した問題</h2>
-        <table class="tbl-r02">
-            <tr>
-                <th>問題</th>
-            </tr>
-            <% @questions.each do |question| %>
-                <tr>
-                    <td><%= question.name%></td>
-                    <td class="td"><a class="edit" href="/posts/questions/edit/<%= question.id %>"><i class="far fa-edit"></i>
-                            <div class="edit-box">
-                                <p class="text">編集</p>
-                            </div>
-                        </a></td>
-                    <td class="td"><a class="delete" href="javascript:delData(<%= question.id %>)"><i
-                                class="far fa-trash-alt"></i>
-                            <div class="delete-box">
-                                <p class="text">削除</p>
-                            </div>
-                        </a></td>
-                </tr>
-            <%end %>
-        </table>
+    <div class="content2">
+        <div class="data1 card">
+            <h2>投稿一覧</h2>
+                <table class="tbl-r02">
+                    <tr>
+                        <th>投稿</th>
+                        <th>投稿日</th>
+                    </tr>
+                    <% @mydata.each do |obj| %>
+                    <tr>
+                        <td><%= obj.content %></td>
+                        <td><%= l obj.created_at,format: :default%></td>
+                        <td class="td"><a class="edit" href="/posts/edit/<%= obj.id %>"><i class="far fa-edit"></i>
+                                <div class="edit-box">
+                                    <p class="text">編集</p>
+                                </div>
+                            </a></td>
+                        <td class="td"><a class="delete" href="javascript:delData(<%= obj.id %>)"><i
+                                    class="far fa-trash-alt"></i>
+                                <div class="delete-box">
+                                    <p class="text">削除</p>
+                                </div>
+                            </a></td>
+                    </tr>
+                    <%end %>
+                </table>
+        </div>
+        <div class="user_questions card">
+            <h2>作成した問題</h2>
+                <table class="tbl-r02">
+                    <tr>
+                        <th>問題</th>
+                        <th>作成日</th>
+                    </tr>
+                    <% @questions.each do |question| %>
+                        <tr>
+                            <td><%= question.name%></td>
+                            <td><%= l question.created_at,format: :default%></td>
+                            <td class="td"><a class="edit" href="/posts/questions/edit/<%= question.id %>"><i class="far fa-edit"></i>
+                                    <div class="edit-box">
+                                        <p class="text">編集</p>
+                                    </div>
+                                </a></td>
+                            <td class="td"><a class="delete" href="javascript:delData(<%= question.id %>)"><i
+                                        class="far fa-trash-alt"></i>
+                                    <div class="delete-box">
+                                        <p class="text">削除</p>
+                                    </div>
+                                </a></td>
+                        </tr>
+                    <%end %>
+                </table>
+        </div>
     </div>
 </div>
 <script>

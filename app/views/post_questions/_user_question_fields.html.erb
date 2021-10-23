@@ -1,23 +1,19 @@
 <div class="nested-fields">
     <div class="form-group">
-        <%= f.label :problem , '問題' %>
-        <%= f.text_area :problem %>
+        <td><%= f.text_area :problem %></td>
     </div>
     <div class="form-group">
-        <%= f.label :answer, '答え' %>
-        <%= f.text_field :answer %>
+        <td><%= f.text_field :answer %></td>
     </div>
     <div class="form-group">
-        <%= f.label :mistake1, '不正解１'%>
-        <%= f.text_field :mistake1 %>
+        <td><%= f.text_field :mistake1 %></td>
     </div>
     <div class="form-group">
-        <%= f.label :mistake2, '不正解２'%>
-        <%= f.text_field :mistake2 %>
+       <td><%= f.text_field :mistake2 %></td>
+        
     </div>
     <div class="form-group">
-        <%= f.label :mistake3, '不正解３'%>
-        <%= f.text_field :mistake3 %>
+        <td><%= f.text_field :mistake3 %></td>
     </div>
     <%= link_to_remove_association "削除", f %>
 </div>
