@@ -1,19 +1,38 @@
-<div class="nested-fields">
-    <div class="form-group">
-        <td><%= f.text_area :problem %></td>
+
+<div class="nested-fields card">
+    <table class="tbl-r02">
+        <tr> 
+            <th class="tbl-problem">問題</th>
+            <th class =tbl-answer colspan="3">答え</th>
+        </tr>
+        <tr>
+            <td class="tbl-problem" rowspan="5">
+                <%= f.text_area :problem %>
+            </td>
+            <td class="tbl-answer" colspan="3">
+            <%= f.text_field :answer %>
+            </td>
+        </tr>
+        <tr>
+            <th colspan="3">不正解</th>
+        </tr>
+        <tr>
+            <td class="td-mistake">
+                <%= f.text_field :mistake1 %>
+            </td>
+        </tr>
+        <tr>
+            <td class="td-mistake">
+                <%= f.text_field :mistake2 %>
+            </td>
+        </tr>
+        <tr>
+            <td class="td-mistake">
+                <%= f.text_field :mistake3 %>
+            </td>
+        </tr>
+    </table>
+    <div class="question-delete">
+        <%= link_to_remove_association "削除", f ,{class: "link"}%>
     </div>
-    <div class="form-group">
-        <td><%= f.text_field :answer %></td>
-    </div>
-    <div class="form-group">
-        <td><%= f.text_field :mistake1 %></td>
-    </div>
-    <div class="form-group">
-       <td><%= f.text_field :mistake2 %></td>
-        
-    </div>
-    <div class="form-group">
-        <td><%= f.text_field :mistake3 %></td>
-    </div>
-    <%= link_to_remove_association "削除", f %>
 </div>

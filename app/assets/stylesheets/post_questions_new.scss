@@ -1,0 +1,88 @@
+.post-questions-wrap{
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 150px;
+}
+
+.post-questions-wrap h1{
+    text-align: center;
+    color: white;
+    font-size: 50px;
+    font-weight: 300;
+    letter-spacing: 3px;
+    text-shadow: 1px 1px 1px #3399ff, -1px 1px 1px #3399ff, 1px -1px 1px #3399ff, -1px -1px 1px #3399ff,
+        1px 1px 1px #3399ff, -1px 1px 1px #3399ff, 1px -1px 1px #3399ff, -1px -1px 1px #3399ff;
+}
+
+.post-questions {
+    margin-top: 50px;
+}
+
+.post-questions .tbl-r02{
+    width: 100%;
+}
+
+.post-questions .tbl-r02 th{
+    width: 10%;
+}
+
+.post-questions .tbl-r02 td{
+    width:70%;
+}
+
+.post-questions .tbl-r02 input[type="text"]{
+    width: 80%;
+    height: 35px;
+}
+
+.post-questions .tbl-r02 textarea{
+    resize: none;
+    width: 80%;
+    height: 60px;
+}
+
+.nested-fields{
+    padding: 20px;
+}
+
+.nested-fields .tbl-r02 .tbl-problem{
+    width: 50%;
+}
+
+.nested-fields .tbl-r02 .tbl-answer{
+    margin-left: 20px;
+}
+
+
+.nested-fields .tbl-r02 .tbl-problem textarea{
+    height: 170px;
+}
+
+.nested-fields .question-delete{
+    margin-top: 20px;
+    
+}
+
+.nested-fields .question-delete .link{
+    color: black;
+    text-decoration:none;
+}
+
+.nested-fields .question-delete .link:hover{
+    color: #3399ff;
+}
+
+.post-questions .link{
+    margin-top: 20px;
+    margin-bottom: 40px;
+    text-align: right;
+} 
+
+.post-questions .add-link{
+    color: black;
+    text-decoration:none;
+}
+
+.post-questions .add-link:hover{
+    color: #3399ff;
+}
