@@ -1,10 +1,10 @@
-.post-question-mylist-wrap{
+.post-questions-mylist-wrap{
     text-align: center;
     padding-top: 80px;
     padding-bottom: 150px;
 }
 
-.post-question-mylist-wrap h1{
+.post-questions-mylist-wrap h1{
     text-align: center;
     color: white;
     font-size: 50px;
@@ -12,4 +12,42 @@
     letter-spacing: 3px;
     text-shadow: 1px 1px 1px #3399ff, -1px 1px 1px #3399ff, 1px -1px 1px #3399ff, -1px -1px 1px #3399ff,
         1px 1px 1px #3399ff, -1px 1px 1px #3399ff, 1px -1px 1px #3399ff, -1px -1px 1px #3399ff;
+}
+
+.post-questions-mylist-wrap .tbl-r02{
+    width: 100%;
+}
+
+.post-questions-mylist-wrap .tbl-r02 th{
+    width: 10%;
+}
+
+.post-questions-mylist-wrap .tbl-r02 td{
+    width:70%;
+}
+
+.post-questions-mylist-wrap .tbl-r02 input[type="text"]{
+    width: 80%;
+    height: 35px;
+}
+
+.post-questions-mylist-wrap .tbl-r02 textarea{
+    resize: none;
+    width: 80%;
+    height: 60px;
+}
+
+.post-questions-mylist-wrap .link{
+    margin-top: 20px;
+    margin-bottom: 40px;
+    text-align: right;
+} 
+
+.post-questions-mylist-wrap .add-link{
+    color: black;
+    text-decoration:none;
+}
+
+.post-questions-mylist-wrap .add-link:hover{
+    color: #3399ff;
 }

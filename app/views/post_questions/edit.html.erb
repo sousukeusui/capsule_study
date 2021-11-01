@@ -1,4 +1,4 @@
-<div class="post-question-mylist-wrap">
+<div class="post-questions-mylist-wrap container col-lg-5">
     <h1>問題編集</h1>
     <%= form_with model:@post_question,url:{controller:'post_questions',action:'update',id:@post_question.id},id:'edit' do |f| %>
     <table class="tbl-r02">
@@ -15,14 +15,14 @@
             </tr>
         </div>
     </table>
-        <div class="user_questions">
+        <div class="make-questions">
             <%= f.fields_for :user_questions do |form| %>
                 <%= render 'user_question_fields',f: form %>
             <% end %>
             <div id="detail-association-insertion-point"></div>
         </div>
 
-        <div class="links">
+        <div class="link">
             <%= link_to_add_association "問題を追加",f,:user_questions, 
                 data: {
                     association_insertion_node: '#detail-association-insertion-point',
