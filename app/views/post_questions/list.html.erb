@@ -1,7 +1,24 @@
-<div class="post-questions-list-wrap">
+<div class="post-questions-list-wrap container col-xl-6 col-lg-8">
     <h1>問題一覧</h1>
-    <% @post_questions.each do |post| %>
-        <a href='/posts/questions/start/<%= post.id %>'><p><%= post.name %></p></a>
-        <p><%= post.explanation %></p>
-    <% end %>
+    <ul class="lists">
+        <% @post_questions.each do |post| %>
+        <li class="list card">
+            <a href="/posts/questions/start/<%=post.id%>">
+                <div class="image-name">
+                    <div class="list-image">
+                        <P><%=image_tag"#{post.user.image.thumb2.url}"%></P>
+                    </div>
+                    <div class="list-name">
+                        <P class="question">問題名</P>
+                        <P><%= post.name %></P>
+                    </div>
+                </div>
+                <div class="list-detail">
+                    <P class="explanation">問題説明</P>
+                    <P><%= post.explanation %></P>
+                </div>
+            </a>
+        </li>
+        <% end %>
+    </ul>
 </div>

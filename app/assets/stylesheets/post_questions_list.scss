@@ -13,3 +13,90 @@
     text-shadow: 1px 1px 1px #3399ff, -1px 1px 1px #3399ff, 1px -1px 1px #3399ff, -1px -1px 1px #3399ff,
         1px 1px 1px #3399ff, -1px 1px 1px #3399ff, 1px -1px 1px #3399ff, -1px -1px 1px #3399ff;
 }
+
+li a{
+    text-decoration: none;
+    color:black;
+}
+
+li:hover{
+    background-color:#f5f5f5;
+}
+
+li a:hover{
+    color: black;
+}
+
+.list{
+    padding: 20px;
+    width: 80%;
+}
+
+.list img{
+    width: 100%;
+}
+
+.list .list-image{
+    text-align: left;
+    width: 30%;
+}
+.list .list-name{
+    width:70%;
+    text-align: left;
+} 
+
+.list-name p{
+    line-height: 25px;
+    font-size: 15px;
+    margin-left: 25px;
+    margin-top: 5px;
+}
+
+.list-name .question{
+    text-align: center;
+    width: 50%;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    font-size: 18px;
+    border: 3px solid #3399ff;
+    border-radius: 10px;
+    margin-left: 10px;
+}
+
+.list .image-name{
+    display: flex;
+}
+
+.list-detail{
+    margin-top:5px;
+}
+
+.list-detail p{
+    margin-bottom: 0px;
+    line-height: 25px;
+    font-size: 15px;
+    margin-top: 5px;
+}
+
+.list-detail .explanation{
+    font-size: 18px;
+    border: 3px  solid #3399ff;
+    border-radius: 10px;
+    margin:0px 25%;
+}
+
+
+@media screen and (min-width:768px){
+
+.lists{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.list{
+    width: 40%;
+}
+
+}
