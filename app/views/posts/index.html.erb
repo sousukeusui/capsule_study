@@ -16,22 +16,24 @@
         </div>
         <% end %>
     </div>
-    <div class="data ">
+    <div class="data container">
         <h1>タイムライン</h1>
-        <div class="row offset-xl-1">
+        <ul class="post-lists">
             <% @data.each do |obj| %>
-            <section class="card col-xl-5 col-md-5 col-10">
-                <div class="flex card-content">
-                    <p class="card-title"><%= obj.user.name %></p>
-                    <p class="card-time"><%= l obj.created_at, format: :short %></p>
+            <li class="post-list">
+                <div class="name-image">
+                    <p class="name"><%= obj.user.name %></p>
+                    <p class="image"><%=image_tag"#{obj.user.image.thumb2.url}",class:"card-img" %></p>
                 </div>
-                <div class="flex">
-                    <p><%=image_tag"#{obj.user.image.thumb2.url}",class:"card-img" %></p>
-                    <p class="card-text content"><%= obj.content %></p>
+                <div class="content">
+                    <p class="content"><%= obj.content %></p>
                 </div>
-            </section>
+                <div class="time">
+                    <p><%= l obj.created_at, format: :short %></p>
+                </div>
+            </li>
             <% end %>
-        </div>
+        </ul>
     </div>
 </div>
 

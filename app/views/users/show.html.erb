@@ -62,7 +62,7 @@
                                         <p class="text">編集</p>
                                     </div>
                                 </a></td>
-                            <td class="td"><a class="delete" href="javascript:delData(<%= question.id %>)"><i
+                            <td class="td"><a class="delete" href="javascript:delquestion(<%= question.id %>)"><i
                                         class="far fa-trash-alt"></i>
                                     <div class="delete-box">
                                         <p class="text">削除</p>
@@ -78,6 +78,15 @@
     function delData(num) {
         if (confirm('この投稿を削除しますか？')) {
             document.location = "/posts/delete/" + num;
+        }
+        return false;
+    }
+</script>
+
+<script>
+    function delquestion(num) {
+        if (confirm('この問題を削除しますか？')) {
+            document.location = "/posts/questions/delete/" + num;
         }
         return false;
     }

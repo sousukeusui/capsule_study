@@ -64,6 +64,7 @@ class PostQuestionsController < ApplicationController
 
     def result
         user = current_user
+        @post_question = PostQuestion.find(params[:id])
         point = user.point
         result = []
         @questions = []
@@ -123,6 +124,12 @@ class PostQuestionsController < ApplicationController
         if @post_question.update(post_question_params)
             redirect_to '/posts/questions/list' ,notice: '編集しました'
         end
+    end
+
+    def delete
+        @post_question = PostQuestion.find(params[:id])
+        @post_question.destroy
+        redirect_to '/users/show/' + current_user.id.to_s ,notice: '問題を削除しました'
     end
 
     private
