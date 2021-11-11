@@ -18,7 +18,7 @@
     </div>
     <div class="data container">
         <h1>タイムライン</h1>
-        <ul class="post-lists">
+        <ul class="post-lists container col-lg-8">
             <% @data.each do |obj| %>
             <li class="post-list">
                 <div class="name-image">
@@ -26,7 +26,7 @@
                     <p class="image"><%=image_tag"#{obj.user.image.thumb2.url}",class:"card-img" %></p>
                 </div>
                 <div class="content">
-                    <p class="content"><%= obj.content %></p>
+                    <p><%= obj.content %></p>
                 </div>
                 <div class="time">
                     <p><%= l obj.created_at, format: :short %></p>

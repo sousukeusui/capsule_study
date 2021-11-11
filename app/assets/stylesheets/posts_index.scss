@@ -2,24 +2,39 @@
   padding-top: 65px;
 }
 
-  .card-text {
-    font-size: 14px;
-    line-height: 1.5;
-    margin-top: 0px;
-  }
-  .card-link {
-    text-align: center;
-    border-top: 1px solid #eee;
-    padding: 20px;
-  }
-  .card-link a {
-    text-decoration: none;
-    color: #0bd;
-    margin: 0 10px;
-  }
-  .card-link a:hover {
-    color: #0090aa;
-  }
+.post-lists{
+  margin-top: 30px;
+}
+
+.post-list{
+  display: flex;
+  border: 1px solid #d3d3d3;
+}
+
+.post-list .name-image .name{
+  margin-bottom: 0px;
+  font-size: 1.1em;
+}
+
+.post-list .name-image{
+  width:10%;
+}
+
+.post-list .card-img{
+  max-height: 70px;
+}
+
+ .post-list .content{
+  font-size: 1.1em;
+  padding: 15px 10px 15px 30px;
+  width:75%;
+ }
+
+ .post-list .time{
+   font-size: 0.9em;
+   width:15%;
+   text-align: center;
+ }
 
   .data-wrap .data{
     margin-top: 20px;
@@ -130,17 +145,21 @@
   vertical-align:top; /*縦方向の揃え位置を指定*/
  }
 
- .flex{
-  display: flex;
- }
+ @media screen and (max-width: 600px) {
+    .data .container{
+      padding: 0px;
+    }
+   .post-list .name-image {
+      width:15%;
+      font-size:1em;
+   }
 
-.content{
-  font-size: 15px;
-  width:100%;
-  text-align: center;
-  padding: 0 20px 10px 20px;
-}
+   .post-list .content{
+     width:70%;
+     font-size: 0.9em;
+   }
 
-.card-content{
-  max-height: 40px;
+   .post-list .time{
+     font-size: 0.8em;
+   }
 }
