@@ -2,6 +2,16 @@
   padding-top: 65px;
 }
 
+.data-wrap .post-btn{
+  color:black;
+  background-color: #fff;
+  font-size: 18px;
+  width:20%;
+  border:solid 3px #ff7733;
+  position:fixed;
+  z-index: 1;
+}
+
 .post-lists{
   margin-top: 30px;
 }
@@ -119,6 +129,17 @@
   .card {
     margin:25px 20px 25px 20px ;
   }
+
+  .data-wrap .post-btn{
+    color:black;
+    background-color: #fff;
+    font-size: 18px;
+    width:10%;
+    border:solid 3px #ff7733;
+    position:fixed;
+    z-index: 1;
+  }
+  
 }
 
 .form{
@@ -126,16 +147,6 @@
   position:fixed;
   z-index: 1;
   left:175px;
-}
-
-.data-wrap .post-btn{
-  color:black;
-  background-color: #fff;
-  font-size: 18px;
-  width:19%;
-  border:solid 3px #ff7733;
-  position:fixed;
-  z-index: 1;
 }
 .SideBySide{
   height:60px;
