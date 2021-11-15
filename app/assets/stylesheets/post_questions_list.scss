@@ -85,6 +85,18 @@ li a{
     margin:0px 25%;
 }
 
+@media screen and (max-width:1200px){
+    .list{
+        margin: 20px 0px;
+    }
+}
+
+@media screen and (max-width:768px){
+    .list{
+        margin: 0px;
+    }
+}
+
 
 @media screen and (min-width:768px){
 
@@ -93,6 +105,7 @@ li a{
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around;
+    padding: 20px;
 }
 
 .list{
