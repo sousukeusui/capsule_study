@@ -19,18 +19,44 @@
 .data1{
     text-align: center;
     width: 80%;
-    padding: 20px 50px;
+    padding: 20px;
     border-radius: 10px;
     box-shadow: 0px 8px 16px -2px rgba(10,10,10,0.1), 5px 2px 7px 0px #dcdcdc;
 }
 
 .data1 h2{
-    text-align: left;
+    text-align: center;
     font-size: 20px;
     margin-bottom:20px;
+    color:white;
+    background-color: #e9727e;
+    width:40%;
+    padding: 5px;
 }
 
 .data1 .tbl-r02{
+    width: 100%;
+}
+
+.user_questions{
+    text-align: center;
+    width:80%;
+    padding: 20px;
+    border-radius: 10px;
+  box-shadow: 0px 8px 16px -2px rgba(10,10,10,0.1), 5px 2px 7px 0px #dcdcdc;
+}
+
+.user_questions h2{
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 20px;
+    background-color: #e9727e;
+    color:white;
+    width:40%;
+    padding: 5px;
+}
+
+.user_questions .tbl-r02{
     width: 100%;
 }
 
@@ -187,24 +213,6 @@
         left: 10px;
     }
 }
-
-  .user_questions{
-      text-align: center;
-      width:80%;
-      padding: 20px 50px;
-      border-radius: 10px;
-    box-shadow: 0px 8px 16px -2px rgba(10,10,10,0.1), 5px 2px 7px 0px #dcdcdc;
-  }
-
-  .user_questions h2{
-      text-align: left;
-      font-size: 20px;
-      margin-bottom: 20px;
-  }
-
-  .user_questions .tbl-r02{
-      width: 100%;
-  }
   
   @media screen and (min-width: 	1500px){
 
