@@ -1,6 +1,6 @@
 <div class="profile-edit-wrap">
     <h1>プロフィール編集</h1>
-    <div class="profile-edit container">
+    <div class="profile-edit container col-lg-6">
         <%= form_for(@user,url:{controller:'users',action:'update'}) do |f| %>
         <%= render 'layouts/error_messages', model: f.object %>
         <div class="form-group">
