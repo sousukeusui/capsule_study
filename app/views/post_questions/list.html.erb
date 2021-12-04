@@ -7,21 +7,24 @@
     <ul class="lists">
         <% @post_questions.each do |post| %>
         <li class="list card">
-            <a href="/posts/questions/start/<%=post.id%>">
-                <div class="image-name">
-                    <div class="list-image">
-                        <P><%=image_tag"#{post.user.image.thumb2.url}"%></P>
+            <div class="listhover">
+                <a href="/posts/questions/start/<%=post.id%>">
+                    <div class="image-name">
+                        <div class="list-image">
+                            <P><%=image_tag"#{post.user.image.thumb2.url}"%></P>
+                        </div>
+                        <div class="list-name">
+                            <P class="question">問題名</P>
+                            <P><%= post.name %></P>
+                        </div>
                     </div>
-                    <div class="list-name">
-                        <P class="question">問題名</P>
-                        <P><%= post.name %></P>
+                    <div class="list-detail">
+                        <P class="explanation">問題説明</P>
+                        <P><%= post.explanation %></P>
                     </div>
-                </div>
-                <div class="list-detail">
-                    <P class="explanation">問題説明</P>
-                    <P><%= post.explanation %></P>
-                </div>
-            </a>
+                </a>
+            </div>
+            <P><%= link_to "マイリスト","/mylist/create/#{post.id}"%></p>
         </li>
         <% end %>
     </ul>
