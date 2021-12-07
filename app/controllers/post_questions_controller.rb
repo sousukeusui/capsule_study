@@ -16,6 +16,7 @@ class PostQuestionsController < ApplicationController
 
     def list
         @post_questions = PostQuestion.all
+        @mylists = current_user.mylists
     end
 
     def start

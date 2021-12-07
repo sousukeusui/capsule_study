@@ -24,7 +24,11 @@
                     </div>
                 </a>
             </div>
-            <P><%= link_to "マイリスト","/mylist/create/#{post.id}"%></p>
+            <% if current_user.mylist_by?(post.id)%>
+                <%= link_to "マイリストを解除", "/mylist/destroy/#{post.id}" %>
+            <% else %>
+                <%= link_to "マイリストに登録", "/mylist/create/#{post.id}" %>
+            <% end %>
         </li>
         <% end %>
     </ul>
