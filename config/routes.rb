@@ -42,7 +42,7 @@ Rails.application.routes.draw do
   get 'posts/questions/edit/:id' => 'post_questions#edit'
   patch 'posts/questions/edit/:id' => 'post_questions#update'
   get 'posts/questions/delete/:id' => 'post_questions#delete'
-  get 'mylist/create/:id' => 'mylist#create'
-  get 'mylist/destroy/:id' => 'mylist#destroy'
+  post 'mylist/create/:id' => 'mylist#create'
+  delete 'mylist/destroy/:id' => 'mylist#destroy'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

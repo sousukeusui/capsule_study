@@ -5,30 +5,28 @@
         <P>気になる問題があったらクリックorタップしてみよう！</P>
     </div>
     <ul class="lists">
-        <% @post_questions.each do |post| %>
+        <% @post_questions.each do |post_question| %>
         <li class="list card">
             <div class="listhover">
-                <a href="/posts/questions/start/<%=post.id%>">
+                <a href="/posts/questions/start/<%=post_question.id%>">
                     <div class="image-name">
                         <div class="list-image">
-                            <P><%=image_tag"#{post.user.image.thumb2.url}"%></P>
+                            <P><%=image_tag"#{post_question.user.image.thumb2.url}"%></P>
                         </div>
                         <div class="list-name">
                             <P class="question">問題名</P>
-                            <P><%= post.name %></P>
+                            <P><%= post_question.name %></P>
                         </div>
                     </div>
                     <div class="list-detail">
                         <P class="explanation">問題説明</P>
-                        <P><%= post.explanation %></P>
+                        <P><%= post_question.explanation %></P>
                     </div>
                 </a>
             </div>
-            <% if current_user.mylist_by?(post.id)%>
-                <%= link_to "マイリストを解除", "/mylist/destroy/#{post.id}" %>
-            <% else %>
-                <%= link_to "マイリストに登録", "/mylist/create/#{post.id}" %>
-            <% end %>
+            <span id = "mylist_buttons_<%= post_question.id %>">                                            
+            　<%= render "mylist/mylist", post_question: post_question %>
+            </span>
         </li>
         <% end %>
     </ul>
