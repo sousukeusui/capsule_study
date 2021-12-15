@@ -16,6 +16,21 @@
     padding:20px 30px;
 }
 
+.mypage-wrap .mylist .mylist-content{
+    width: 100%;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 8px 16px -2px rgba(10,10,10,0.1), 5px 2px 7px 0px #dcdcdc;
+}
+
+.mypage-wrap .mylist .mylist-content .tbl-r02{
+  width: 100%;
+}
+
+.mypage-wrap .mylist .tbl-r02 td{
+    text-align: center;
+}
+
 .data1{
     text-align: center;
     width: 80%;

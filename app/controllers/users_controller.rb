@@ -17,7 +17,8 @@ class UsersController < ApplicationController
   def show
     @mydata =current_user.posts
     @user = User.find(params[:id])
-    @questions = PostQuestion.where(user_id: params[:id])
+    @questions = current_user.post_questions
+    @mylists = current_user.mylists
   end
 
   def edit

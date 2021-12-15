@@ -19,6 +19,27 @@
             </div>
         </div>
     </div>
+
+    <div class="mylist">
+        <h2>マイリスト</h2>
+        <div class = "mylist-content card">
+            <table class="tbl-r02">
+                <tr>
+                    <th>問題名</th>
+                    <th>問題説明</th>
+                <tr>
+                <% @mylists.each do |mylist|%>
+                <tr>
+                    <td><%= mylist.post_question.name %></td>
+                    <td><%= mylist.post_question.explanation%></td>
+                    <td><%= link_to '問題を解く',"/posts/questions/start/#{mylist.post_question_id}"%></td>
+                    <td>削除</td>
+                </tr>
+                <% end %>
+            </table>
+        </div>
+    </div>
+
     <div class="content2">
         <div class="data1 card">
             <h2>投稿一覧</h2>
