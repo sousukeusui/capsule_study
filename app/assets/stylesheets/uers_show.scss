@@ -16,11 +16,27 @@
     padding:20px 30px;
 }
 
+.mypage-wrap .mylist .head{
+    font-size: 25px;
+    text-decoration: none;
+}
+
+.mypage-wrap .mylist a:hover{
+    color:black;
+}
+
+.mypage-wrap .mylist .icon{
+    margin-right: 10px;
+}
+
 .mypage-wrap .mylist .mylist-content{
     width: 100%;
-    padding: 20px;
     border-radius: 10px;
     box-shadow: 0px 8px 16px -2px rgba(10,10,10,0.1), 5px 2px 7px 0px #dcdcdc;
+}
+
+.mypage-wrap .mylist .mylist-content div{
+    margin:20px;
 }
 
 .mypage-wrap .mylist .mylist-content .tbl-r02{
@@ -29,6 +45,23 @@
 
 .mypage-wrap .mylist .tbl-r02 td{
     text-align: center;
+}
+
+.mypage-wrap .mylist .tbl-r02 .name{
+    width: 30%;
+}
+
+.mypage-wrap .mylist .tbl-r02 .explanation{
+    width: 40%;
+}
+
+
+.mypage-wrap .mylist .tbl-r02 .solution{
+    width:20%;
+}
+
+.mypage-wrap .mylist .tbl-r02 .td{
+    width: 10%;
 }
 
 .data1{

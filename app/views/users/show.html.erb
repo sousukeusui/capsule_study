@@ -21,8 +21,9 @@
     </div>
 
     <div class="mylist">
-        <h2>マイリスト</h2>
-        <div class = "mylist-content card">
+        <a class = "head" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="fas fa-list icon"></i>マイリスト表示</a>
+        <div class = "mylist-content card collapse" id ="collapseExample">
+            <div>
             <table class="tbl-r02">
                 <tr>
                     <th>問題名</th>
@@ -30,13 +31,21 @@
                 <tr>
                 <% @mylists.each do |mylist|%>
                 <tr>
-                    <td><%= mylist.post_question.name %></td>
-                    <td><%= mylist.post_question.explanation%></td>
-                    <td><%= link_to '問題を解く',"/posts/questions/start/#{mylist.post_question_id}"%></td>
-                    <td>削除</td>
+                    <td class= "name"><%= mylist.post_question.name %></td>
+                    <td class= "explanation"><%= mylist.post_question.explanation%></td>
+                    <td class="solution"><%= link_to '問題を解く',"/posts/questions/start/#{mylist.post_question_id}"%></td>
+                    <td class="td">
+                        <a class="delete" href="javascript:delMylist(<%= mylist.id %>)">
+                            <i class="far fa-trash-alt"></i>
+                            <div class="delete-box">
+                                <p class="text">削除</p>
+                            </div>
+                        </a>
+                    </td>
                 </tr>
                 <% end %>
             </table>
+            </div>
         </div>
     </div>
 
@@ -98,6 +107,15 @@
     function delquestion(num) {
         if (confirm('この問題を削除しますか？')) {
             document.location = "/posts/questions/delete/" + num;
+        }
+        return false;
+    }
+</script>
+
+<script>
+    function delMylist(num){
+        if(confirm('削除しますか？')){
+            document.location = "/mylist/delete/" + num;
         }
         return false;
     }

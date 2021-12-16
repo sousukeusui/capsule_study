@@ -44,5 +44,6 @@ Rails.application.routes.draw do
   get 'posts/questions/delete/:id' => 'post_questions#delete'
   post 'mylist/create/:id' => 'mylist#create'
   delete 'mylist/destroy/:id' => 'mylist#destroy'
+  get 'mylist/delete/:id' => 'mylist#delete'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
