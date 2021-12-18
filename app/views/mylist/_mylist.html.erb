@@ -1,5 +1,13 @@
 <% if current_user.mylist_by?(post_question.id) %>
-    <%= link_to 'マイリストを解除',"/mylist/destroy/#{post_question.id}" ,method: :delete, remote: true %>
+    <%= link_to "/mylist/destroy/#{post_question.id}" ,{method: :delete, remote: true, class:"mylist-btn"} do %>
+        <div class="mylist-box">
+            <i class="fas fa-minus icon"></i><p>マイリスト解除</p>
+        </div>
+    <% end %>
 <% else %>
-    <%= link_to 'マイリスト登録', "/mylist/create/#{post_question.id}", method: :post, remote: true %>
+    <%= link_to "/mylist/create/#{post_question.id}", {method: :post, remote: true,class:"mylist-btn"} do %>
+        <div class="mylist-box">
+            <i class="fas fa-plus icon"></i><p>マイリスト登録</p>
+        </div>
+    <% end %>
 <% end %>

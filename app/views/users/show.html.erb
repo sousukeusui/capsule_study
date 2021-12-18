@@ -21,7 +21,7 @@
     </div>
 
     <div class="mylist">
-        <a class = "head" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="fas fa-list icon"></i>マイリスト表示</a>
+        <a class = "head" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"><i class="fas fa-list icon"></i>マイリスト</a>
         <div class = "mylist-content card collapse" id ="collapseExample">
             <div>
             <table class="tbl-r02">
@@ -33,7 +33,7 @@
                 <tr>
                     <td class= "name"><%= mylist.post_question.name %></td>
                     <td class= "explanation"><%= mylist.post_question.explanation%></td>
-                    <td class="solution"><%= link_to '問題を解く',"/posts/questions/start/#{mylist.post_question_id}"%></td>
+                    <td class="solution"><%= link_to '問題を解く',"/posts/questions/start/#{mylist.post_question_id}",{class: "question-solution"}%></td>
                     <td class="td">
                         <a class="delete" href="javascript:delMylist(<%= mylist.id %>)">
                             <i class="far fa-trash-alt"></i>
