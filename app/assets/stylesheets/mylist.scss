@@ -8,6 +8,7 @@
     border: 1px solid black;
     border-radius: 5px;
     padding: 5px 10px;
+    text-align: center;
 }
 
 .mylist-box{
@@ -16,13 +17,20 @@
 
 .mylist-btn .icon{
     margin-top: 7px;
-    margin-right: 5px;
+    margin-left: 10%;
 }
 
 .mylist-btn p {
+    width: 100%;
     margin-bottom: 0px;
 }
 
 .mylist-btn:hover{
     background-color: #3399ff;
+}
+
+@media screen and (max-width: 480px) {
+    .mylist-btn .icon{
+        margin-left: 0px;
+    }
 }

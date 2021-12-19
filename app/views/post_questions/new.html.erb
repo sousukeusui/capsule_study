@@ -2,11 +2,21 @@
     <div class="post-questions">
         <h1>問題投稿</h1>
         <P>自分だけのオリジナル問題を作ろう！</P>
+        <a class= "collapse-link"data-toggle="collapse" href="#collapseExplanation" role="button" aria-expanded="false" aria-controls="collapseExplanation">問題投稿の使い方</a>
+        <div class= "collapse-box">
+            <div class= "collapse" id= "collapseExplanation">
+                <P>①<span>タイトル</span>に作る問題をまとめる名前(ジャンル等）を入力。<br>&emsp;例:「入試でよく出る英単語10選」「アニメ・ゲームクイズ」...など、ジャンルは何でも可！</P>
+                <P>②<span>問題説明欄</span>に問題のおおよその説明を入力。</P>
+                <P>③<span>問題欄</span>に問題を入力し、答え欄にその問題の正解になる答えを、<br>&emsp;<span>不正解欄</span>に選択すると不正解になる選択肢を追加。<br>&emsp;(正解は一つのみ、不正解は１つ以上３つ以下で追加可能）</P>
+                <P>④問題数を増やしたい場合は、右下にある<span>問題を追加</span>をクリックすると問題を作る欄が追加される。<br>&emsp;逆に問題を消したい場合は<span>削除</span>をクリック。</P>
+                <P>⑤最後に作った問題を確認したら、<span>投稿する</span>ボタンを押して投稿完了!</P>
+            </div>
+        </div>
         <%= form_for(@post_question, url:{controller:'post_questions', action:'create'}) do |f| %>
         <table class="tbl-r02">
             <div class="form-group">
                 <tr>
-                    <th><%= f.label  :name, '問題名'%></th>
+                    <th><%= f.label  :name, 'タイトル'%></th>
                     <td><%= f.text_field :name %></td>
                 </tr>
             </div>
@@ -25,7 +35,7 @@
             </div>
     
             <div class="link">
-                <%= link_to_add_association "問題を追加",f,:user_questions, 
+                <%= link_to_add_association "＋問題を追加",f,:user_questions, 
                     data: {
                         association_insertion_node: '#detail-association-insertion-point',
                         association_insertion_method: 'append'

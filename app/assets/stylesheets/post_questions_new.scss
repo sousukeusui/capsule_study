@@ -18,6 +18,26 @@
     margin-top: 50px;
 }
 
+.post-questions-wrap .post-questions .collapse-link{
+    text-decoration: none;
+}
+
+.post-questions-wrap .post-questions .collapse-link:hover{
+    color: black;
+}
+
+.post-questions-wrap .collapse-box{
+    text-align: left;
+    margin-top: 10px;
+    border: 1px solid #EFEFEF;
+    padding: 10px 10px;
+    background-color: #cef9ff;
+}
+
+.post-questions-wrap .collapse-box span{
+    color:#ff3300;
+}
+
 .post-questions .tbl-r02{
     width: 100%;
 }
@@ -66,6 +86,18 @@
 .nested-fields .question-delete .link{
     color: black;
     text-decoration:none;
+}
+
+.nested-fields .question-delete .link .trash{
+    margin-top: 7px;
+    margin-right: 5px;
+}
+
+.nested-fields .question-delete .link div{
+    width: 30%;
+    margin: 0px auto;
+    display: flex;
+    justify-content: center;
 }
 
 .nested-fields .question-delete .link:hover{

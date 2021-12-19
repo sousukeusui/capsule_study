@@ -33,6 +33,10 @@
         </tr>
     </table>
     <div class="question-delete">
-        <%= link_to_remove_association "削除", f ,{class: "link"}%>
+        <%= link_to_remove_association  f ,{class: "link"} do%>
+            <div>
+                <i class="far fa-trash-alt trash"></i><P>削除</P>
+            </div>
+        <% end %>
     </div>
 </div>
