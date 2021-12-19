@@ -40,6 +40,29 @@
     margin-top: 5px;
 }
 
+.profile-edit-wrap .image_input_btn{
+    color: white;
+    display: block;
+    border: 1px solid black;
+    width: 30%;
+    border-radius: 5px;
+    background-color: #25c1ff;
+    margin: 0px auto;
+}
+
+.profile-edit-wrap .image_input_btn:hover{
+    background-color: #2083aa;
+    cursor: pointer;
+}
+
+.profile-edit-wrap .image_name{
+    margin-top: 5px;
+}
+
+.profile-edit-wrap .image_form{
+    display: none;
+}
+
 .edit-btn .btn-sticky{
     border-top:none;
     border-bottom: none;
