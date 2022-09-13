@@ -80,7 +80,11 @@ test:
 # for a full overview on how database connection configuration can be specified.
 #
 production:
+
   <<: *default
-  database: capsule_study_production
-  username: capsule_study
-  password: <%= ENV['CAPSULE_STUDY_DATABASE_PASSWORD'] %>
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  #database: capsule_study_production
+  #username: capsule_study
+  #password: <%= ENV['CAPSULE_STUDY_DATABASE_PASSWORD'] %>
