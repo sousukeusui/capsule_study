@@ -1,24 +1,33 @@
-# README
+# CapsuleStudy
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### アプリ説明
+勉強系のWebアプリです。<br>
+あらかじめ用意されている問題の中からランダムにテストが作成され、解答することができます。<br>
+問題を作成し投稿できたり、逆に様々な問題を解くこともできます。<br>
+つぶやくこともでき、勉強についての悩みや目標、情報共有を発信してみましょう。
 
-Things you may want to cover:
+### なぜ作ったか
+勉強のモチベーションを維持して楽しく継続し、各個人の目標を達成して欲しいという思いから作りました。
 
-* Ruby version
+### URL
+https://capsule-study.herokuapp.com/
 
-* System dependencies
+### テスト用アカウント
+メール：example@email.com<br>
+パスワード：capsule_study
 
-* Configuration
+### 利用方法
 
-* Database creation
+### 使用技術
+Ruby 3.1.2<br>
+Ruby on Rails 6.1.3.2<br>
+PostgreSQL 14.5<br>
+Puma<br>
+RSpec<br>
+HTML&CSS<br>
+JavaScript
 
-* Database initialization
+### 機能一覧
 
-* How to run the test suite
+### テスト
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
