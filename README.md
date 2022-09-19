@@ -34,6 +34,8 @@ https://capsule-study.herokuapp.com/
 
 <details>
 <summary>②プロフィール画面</summary><br>
+![プロフィール画面](./profile.png)<br>
+<br>
 ログインするとプロフィール画面に遷移します。プロフィール画面では以下のことができます<br>
 	<br>
 
